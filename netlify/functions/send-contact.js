@@ -110,14 +110,7 @@ ${getStatsText()}
     `.trim();
 
     // إرسال إلى Telegram
-    await sendToAllChats(text);
-
-
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Telegram Error:', errorData);
-      return { statusCode: 500, body: JSON.stringify({ error: 'فشل الإرسال' }) };
-    }
+     await sendToAllChats(text);
 
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
 
