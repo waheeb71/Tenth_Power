@@ -44,7 +44,7 @@ const Footer: React.FC = () => {
             <div className="flex items-center space-x-4 rtl:space-x-reverse">
               <img
                 src="/logo.png"
-                alt="شعار الشركة"
+               alt="تركيب الزجاج القوة العاشرة"
                 className="w-14 h-14 object-cover rounded-full border-2 border-amber-500 shadow-lg"
               />
               <div>
@@ -58,18 +58,32 @@ const Footer: React.FC = () => {
               شركة رائدة في مجال المقاولات، الزجاج، والألمنيوم. نُحقق أحلامك بجودة لا تُضاهى.
             </p>
             <div className="flex space-x-3 rtl:space-x-reverse pt-2">
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
+              <a href="https://www.facebook.com/share/1B76d6yTDp/" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
+              <a href="https://www.instagram.com/ZJJ4021" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
                 <Instagram className="w-4 h-4" />
               </a>
               <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
                 <TelegramIcon className="w-4 h-4" />
               </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
+              <a href="https://wa.me/966532438253" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
                 <WhatsAppIcon className="w-4 h-4" />
               </a>
+                {/* Snapchat */}
+  <a href="https://www.snapchat.com/add/zjjskryt24?share_id=dOfCOthKqmw&locale=ar-AE" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
+    <svg className="w-4 h-4" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M256 0C114.624 0 0 114.624 0 256c0 141.376 114.624 256 256 256s256-114.624 256-256C512 114.624 397.376 0 256 0zm0 472c-119.296 0-216-96.704-216-216S136.704 40 256 40s216 96.704 216 216-96.704 216-216 216z"/>
+      <path d="M256 112c-79.296 0-144 64.704-144 144s64.704 144 144 144 144-64.704 144-144-64.704-144-144-144zm0 256c-61.856 0-112-50.144-112-112s50.144-112 112-112 112 50.144 112 112-50.144 112-112 112z"/>
+    </svg>
+  </a>
+
+  {/* TikTok */}
+  <a href="https://www.tiktok.com/@user0532438253?_t=ZS-8zOaCY7q4xg&_r=1" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
+    <svg className="w-4 h-4" viewBox="0 0 448 512" fill="white" xmlns="http://www.w3.org/2000/svg">
+      <path d="M448 209.9v-35.2c-15.2 7.1-31.5 11.4-48.5 12.5-17.5 1.2-34.5-1.8-50.4-8.3v162.3c0 66.3-53.7 120-120 120s-120-53.7-120-120 53.7-120 120-120c10.7 0 21.1 1.3 31 3.8v-90.1h62c4.4 0 8-3.6 8-8v-69.3z"/>
+    </svg>
+  </a>
             </div>
           </div>
 
@@ -108,6 +122,10 @@ const Footer: React.FC = () => {
                 <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
                 <span>تركيب الألمنيوم</span>
               </li>
+               <li className="flex items-center space-x-2 rtl:space-x-reverse">
+      <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+      <span>أعمال الستيل</span> 
+    </li>
               <li className="flex items-center space-x-2 rtl:space-x-reverse">
                 <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
                 <span>المقاولات العامة</span>
@@ -127,8 +145,8 @@ const Footer: React.FC = () => {
                 <Phone className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-gray-300">هاتف</p>
-                  <a href="tel:+966501234567" className="text-white hover:text-amber-400 transition-colors duration-200 font-medium">
-                    +966 50 123 4567
+                  <a href="tel:+966532438253" className="text-white hover:text-amber-400 transition-colors duration-200 font-medium">
+                   +966 53 243 8253
                   </a>
                 </div>
               </div>
@@ -137,8 +155,8 @@ const Footer: React.FC = () => {
                 <Mail className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-gray-300">البريد</p>
-                  <a href="mailto:info@tenth-power.com" className="text-white hover:text-amber-400 transition-colors duration-200 text-sm">
-                    info@tenth-power.com
+                  <a href="mailto:Zjajkryt78@gmail.com" className="text-white hover:text-amber-400 transition-colors duration-200 text-sm">
+                    Zjajkryt78@gmail.com
                   </a>
                 </div>
               </div>
@@ -147,7 +165,7 @@ const Footer: React.FC = () => {
                 <MapPin className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
                 <div>
                   <p className="text-sm text-gray-300">الموقع</p>
-                  <p className="text-white text-sm">الرياض، المملكة العربية السعودية</p>
+                  <p className="text-white text-sm">المملكة العربية السعودية</p>
                 </div>
               </div>
             </div>
@@ -155,7 +173,7 @@ const Footer: React.FC = () => {
             {/* Call Button for Mobile */}
             <div className="sm:hidden mt-6">
               <a
-                href="tel:+966501234567"
+                href="tel:+966532438253"
                 className="w-full flex items-center justify-center space-x-2 rtl:space-x-reverse bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-amber-500/30"
               >
                 <Phone className="w-4 h-4" />

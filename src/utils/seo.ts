@@ -105,7 +105,7 @@ export const organizationStructuredData = {
     "@type": "ContactPoint",
     "telephone": "+966532438253",
     "contactType": "customer service",
-    "email": "info@tenth-power.com",
+    "email": "Zjajkryt78@gmail.com",
     "availableLanguage": ["Arabic", "English"]
   },
   "sameAs": [

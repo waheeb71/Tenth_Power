@@ -23,14 +23,14 @@ const Chatbot: React.FC = () => {
       'خدمات': 'نقدم خدمات متنوعة في أعمال الزجاج والألمنيوم والمقاولات العامة. يمكنكم زيارة صفحة خدماتنا لمزيد من التفاصيل.',
       'أسعار': 'أسعارنا تنافسية ومناسبة لجميع الميزانيات. يرجى التواصل معنا لمعرفة تفاصيل الأسعار حسب مشروعكم.',
       'مشاريع': 'لدينا العديد من المشاريع المنجزة بنجاح. يمكنكم مشاهدة معرض أعمالنا في صفحة المشاريع.',
-      'تواصل': 'يمكنكم التواصل معنا عبر الهاتف: +966 50 123 4567 أو البريد الإلكتروني: info@tenth-power.com',
+      'تواصل': 'يمكنكم التواصل معنا عبر الهاتف:+966532438253 أو البريد الإلكتروني: Zjajkryt78@gmail.com',
       'default': 'شكراً لاستفساركم. سيقوم فريقنا بالرد عليكم في أقرب وقت. يرجى ترك رسالة في صفحة التواصل للحصول على رد مفصل.'
     },
     en: {
       'services': 'We offer various services in glass works, aluminum, and general contracting. Please visit our services page for more details.',
       'prices': 'Our prices are competitive and suitable for all budgets. Please contact us for pricing details based on your project.',
       'projects': 'We have many successfully completed projects. You can view our portfolio on the projects page.',
-      'contact': 'You can contact us by phone: +966 50 123 4567 or email: info@tenth-power.com',
+      'contact': 'You can contact us by phone:+966532438253 or email: Zjajkryt78@gmail.com',
       'default': 'Thank you for your inquiry. Our team will respond to you soon. Please leave a message on the contact page for a detailed response.'
     }
   };

@@ -34,7 +34,7 @@ const SEO: React.FC<SEOProps> = ({
       "@type": "ContactPoint",
       "telephone": "+966532438253",
       "contactType": "customer service",
-      "email": "info@tenth-power.com"
+      "email": "Zjajkryt78@gmail.com"
     },
     "sameAs": [
       "https://facebook.com/tenthpower",

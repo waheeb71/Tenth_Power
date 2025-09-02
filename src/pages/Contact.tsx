@@ -35,13 +35,13 @@ const Contact: React.FC = () => {
       icon: Phone,
       title: 'الهاتف',
       content: '+966 50 123 4567',
-      href: 'tel:+966501234567'
+      href: 'tel:+966532438253'
     },
     {
       icon: Mail,
       title: 'البريد الإلكتروني',
-      content: 'info@tenth-power.com',
-      href: 'mailto:info@tenth-power.com'
+      content: 'Zjajkryt78@gmail.com',
+      href: 'mailto:Zjajkryt78@gmail.com'
     },
     {
       icon: MapPin,

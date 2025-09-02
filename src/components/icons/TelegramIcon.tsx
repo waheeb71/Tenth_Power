@@ -17,3 +17,4 @@ export function TelegramIcon(props) {
     </svg>
   );
 }
+
