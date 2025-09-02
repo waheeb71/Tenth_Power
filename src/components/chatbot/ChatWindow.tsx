@@ -24,7 +24,9 @@ const ChatWindow: React.FC<Props> = ({
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   return (
-    <div className={`fixed top-20 left-20 w-96 h-96 bg-white rounded-2xl shadow-3xl border border-gray-200 flex flex-col z-50 overflow-hidden ${isOpen ? 'block' : 'hidden'}`}>
+    <div className={`fixed top-4 left-1/2 transform -translate-x-1/2 sm:left-20 sm:transform-none w-[90%] max-w-sm sm:w-96 h-[80%] sm:h-96 bg-white rounded-2xl shadow-3xl border border-gray-200 flex flex-col z-50 overflow-hidden ${isOpen ? 'block' : 'hidden'}`}>
+
+   
       <div className="bg-gradient-to-r from-amber-500 to-amber-600 text-white p-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3 rtl:space-x-reverse">
