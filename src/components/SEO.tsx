@@ -32,7 +32,7 @@ const SEO: React.FC<SEOProps> = ({
     },
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+966-50-123-4567",
+      "telephone": "+966532438253",
       "contactType": "customer service",
       "email": "info@tenth-power.com"
     },

@@ -3,4 +3,4 @@ Allow: /
 Disallow: /admin/
 Disallow: /api/
 
-Sitemap: https://tenth-power.com/sitemap.xml
+Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap.xml
