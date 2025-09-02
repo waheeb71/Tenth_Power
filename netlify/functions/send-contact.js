@@ -110,24 +110,29 @@ ${escapeMarkdown(message)}
 ${getStatsText()}
     `.trim();
 
-    // إرسال إلى Telegram
-    const response = await fetch(
-      `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          chat_id: TELEGRAM_CHAT_ID,
-          text: text,
-          parse_mode: 'Markdown'
-        })
-      }
-    );
+    // --- إرسال الرسالة لجميع المدراء ---
+    const ADMIN_USERS = (process.env.ADMIN_USER_IDS || '')
+      .split(',')
+      .map(id => id.trim())
+      .filter(Boolean);
 
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Telegram Error:', errorData);
-      return { statusCode: 500, body: JSON.stringify({ error: 'فشل الإرسال' }) };
+    // قائمة كل المستقبلين (مدراء + قناة/جروب رئيسي)
+    const recipients = [...ADMIN_USERS, TELEGRAM_CHAT_ID];
+
+    // إرسال لكل معرف
+    for (const chatId of recipients) {
+      await fetch(
+        `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            chat_id: chatId,
+            text: text,
+            parse_mode: 'Markdown'
+          })
+        }
+      );
     }
 
     return { statusCode: 200, body: JSON.stringify({ success: true }) };
