@@ -134,11 +134,13 @@ const ContactForm = () => {
           onChange={handleChange}
           className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:border-amber-500"
         >
-          <option value="">{t('contact.form.selectService') || 'اختر نوع الخدمة'}</option>
+          <option value="">{t('ختر نوع الخدمة') || 'ختر نوع الخدمة'}</option>
           <option value="glass">أعمال الزجاج</option>
           <option value="aluminum">أعمال الألمنيوم</option>
           <option value="contracting">المقاولات العامة</option>
+          <option value="steel">أعمال الستيل</option>
           <option value="consultation">استشارة</option>
+
         </select>
       </div>
 
