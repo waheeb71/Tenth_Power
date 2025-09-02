@@ -39,53 +39,111 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center gap-10 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:items-start py-16">
           
     
-          {/* Company Info */}
-          <div className="space-y-5">
-            <div className="flex items-center space-x-4 rtl:space-x-reverse">
-              <img
-                src="/logo.png"
-               alt="تركيب الزجاج القوة العاشرة"
-                className="w-14 h-14 object-cover rounded-full border-2 border-amber-500 shadow-lg"
-              />
-              <div>
-                <h3 className="text-xl font-extrabold bg-gradient-to-r from-amber-400 to-white bg-clip-text text-transparent">
-                  القوة العاشرة
-                </h3>
-                <p className="text-amber-200 text-sm font-medium">للمقاولات العامة</p>
-              </div>
-            </div>
-            <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
-              شركة رائدة في مجال المقاولات، الزجاج، والألمنيوم. نُحقق أحلامك بجودة لا تُضاهى.
-            </p>
-            <div className="flex space-x-3 rtl:space-x-reverse pt-2">
-              <a href="https://www.facebook.com/share/1B76d6yTDp/" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
-                <Facebook className="w-4 h-4" />
-              </a>
-              <a href="https://www.instagram.com/ZJJ4021" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
-                <Instagram className="w-4 h-4" />
-              </a>
-              <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
-                <TelegramIcon className="w-4 h-4" />
-              </a>
-              <a href="https://wa.me/966532438253" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
-                <WhatsAppIcon className="w-4 h-4" />
-              </a>
-                {/* Snapchat */}
-  <a href="https://www.snapchat.com/add/zjjskryt24?share_id=dOfCOthKqmw&locale=ar-AE" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
-    <svg className="w-4 h-4" viewBox="0 0 512 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M256 0C114.624 0 0 114.624 0 256c0 141.376 114.624 256 256 256s256-114.624 256-256C512 114.624 397.376 0 256 0zm0 472c-119.296 0-216-96.704-216-216S136.704 40 256 40s216 96.704 216 216-96.704 216-216 216z"/>
-      <path d="M256 112c-79.296 0-144 64.704-144 144s64.704 144 144 144 144-64.704 144-144-64.704-144-144-144zm0 256c-61.856 0-112-50.144-112-112s50.144-112 112-112 112 50.144 112 112-50.144 112-112 112z"/>
-    </svg>
-  </a>
+         {/* Company Info */}
+<div className="space-y-5">
+  <div className="flex items-center space-x-4 rtl:space-x-reverse">
+    <img
+      src="/logo.png"
+      alt="شعار القوة العاشرة للمقاولات العامة"
+      className="w-14 h-14 object-cover rounded-full border-2 border-amber-500 shadow-lg"
+    />
+    <div>
+      <h3 className="text-xl font-extrabold bg-gradient-to-r from-amber-400 to-white bg-clip-text text-transparent">
+        القوة العاشرة
+      </h3>
+      <p className="text-amber-200 text-sm font-medium">للمقاولات العامة</p>
+    </div>
+  </div>
 
-  {/* TikTok */}
-  <a href="https://www.tiktok.com/@user0532438253?_t=ZS-8zOaCY7q4xg&_r=1" className="p-2 bg-gray-800 rounded-full hover:bg-amber-600 transition-all duration-300 shadow-md hover:shadow-amber-500/20">
-    <svg className="w-4 h-4" viewBox="0 0 448 512" fill="white" xmlns="http://www.w3.org/2000/svg">
-      <path d="M448 209.9v-35.2c-15.2 7.1-31.5 11.4-48.5 12.5-17.5 1.2-34.5-1.8-50.4-8.3v162.3c0 66.3-53.7 120-120 120s-120-53.7-120-120 53.7-120 120-120c10.7 0 21.1 1.3 31 3.8v-90.1h62c4.4 0 8-3.6 8-8v-69.3z"/>
-    </svg>
-  </a>
-            </div>
-          </div>
+  <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
+    شركة رائدة في مجال المقاولات، الزجاج، والألمنيوم. نُحقق أحلامك بجودة لا تُضاهى.
+  </p>
+
+  {/* Social Icons */}
+  <div className="flex space-x-4 rtl:space-x-reverse pt-3">
+    {/* Facebook */}
+    <a
+      href="https://www.facebook.com/share/1B76d6yTDp/"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تابعنا على فيسبوك"
+      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
+    >
+      <Facebook className="w-5 h-5 text-gray-100" />
+    </a>
+
+    {/* Instagram */}
+    <a
+      href="https://www.instagram.com/ZJJ4021"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تابعنا على إنستغرام"
+      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
+    >
+      <Instagram className="w-5 h-5 text-gray-100" />
+    </a>
+
+    {/* Telegram */}
+    <a
+      href="https://t.me/Ponamoha"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تواصل معنا على تيليجرام"
+      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
+    >
+      <img
+        src="/icons/telegram.svg"
+        alt="Telegram - تواصل مع القوة العاشرة للمقاولات العامة، أعمال الزجاج والألمنيوم والستيل"
+        className="w-5 h-5 brightness-0 invert"
+      />
+    </a>
+
+    {/* WhatsApp */}
+    <a
+      href="https://wa.me/966532438253"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تحدث معنا على واتساب"
+      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
+    >
+      <img
+        src="/icons/whatsapp.svg"
+        alt="WhatsApp - تواصل مباشرة مع القوة العاشرة للمقاولات العامة، متخصصون في الزجاج والألمنيوم والستيل"
+        className="w-5 h-5 brightness-0 invert"
+      />
+    </a>
+
+    {/* Snapchat */}
+    <a
+      href="https://www.snapchat.com/add/zjjskryt24?share_id=dOfCOthKqmw&locale=ar-AE"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="تابعنا على سناب شات"
+      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
+    >
+      <img
+        src="/icons/snapchat.svg"
+        alt="Snapchat - شاهد مشاريع القوة العاشرة للمقاولات العامة في الزجاج والألمنيوم والستيل"
+        className="w-5 h-5 filter brightness-0 invert"
+      />
+    </a>
+
+    {/* TikTok */}
+    <a
+      href="https://www.tiktok.com/@user0532438253?_t=ZS-8zOaCY7q4xg&_r=1"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="شاهدنا على تيك توك"
+      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
+    >
+      <img
+        src="/icons/tiktok.svg"
+        alt=""
+        className="w-5 h-5 filter brightness-0 invert"
+      />
+    </a>
+  </div>
+</div>
 
           {/* Quick Links */}
           <div className="space-y-5">

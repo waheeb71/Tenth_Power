@@ -93,7 +93,7 @@ const Admin: React.FC = () => {
           </form>
 
           <div className="mt-6 text-center text-sm text-gray-500">
-            <p>للاختبار: admin@tenth-power.com / admin123</p>
+            <div>نسيت كلمة المرور؟ تواصل مع الدعم الفني.</div> 
           </div>
         </div>
       </div>
