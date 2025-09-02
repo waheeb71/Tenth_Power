@@ -9,10 +9,9 @@ const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-   <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white relative overflow-hidden">
-      
+  <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white relative overflow-hidden">
       {/* Wave Separator */}
-      <div className="absolute top-0 left-0 w-full overflow-hidden leading-none rotate-180 z-0">
+       <div className="w-full overflow-hidden leading-none">
         <svg
           className="relative block w-full h-12 sm:h-16"
           xmlns="http://www.w3.org/2000/svg"
