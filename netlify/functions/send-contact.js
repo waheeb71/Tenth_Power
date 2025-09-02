@@ -3,8 +3,7 @@
 // ❗️ ضع هذه القيم في Netlify Environment Variables
 const { TELEGRAM_BOT_TOKEN, TELEGRAM_CHAT_ID, ADMIN_USER_ID } = process.env;
 
-// ✅ تخزين بسيط للإحصائيات (في الذاكرة - للعرض فقط)
-// في بيئة إنتاج حقيقية، استخدم قاعدة بيانات (مثل Firebase أو Netlify KV)
+const CHAT_IDS = TELEGRAM_CHAT_ID.split(',').map(id => id.trim());
 let stats = {
   totalMessages: 0,
   messagesToday: 0,
@@ -110,18 +109,27 @@ ${escapeMarkdown(message)}
 ${getStatsText()}
     `.trim();
 
-    // --- إرسال الرسالة لجميع المدراء ---
-    const ADMIN_USERS = (process.env.ADMIN_USER_IDS || '')
-      .split(',')
-      .map(id => id.trim())
-      .filter(Boolean);
+    // إرسال إلى Telegram
+    await sendToAllChats(text);
 
-    // قائمة كل المستقبلين (مدراء + قناة/جروب رئيسي)
-    const recipients = [...ADMIN_USERS, TELEGRAM_CHAT_ID];
 
-    // إرسال لكل معرف
-    for (const chatId of recipients) {
-      await fetch(
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Telegram Error:', errorData);
+      return { statusCode: 500, body: JSON.stringify({ error: 'فشل الإرسال' }) };
+    }
+
+    return { statusCode: 200, body: JSON.stringify({ success: true }) };
+
+  } catch (error) {
+    console.error('Server Error:', error);
+    return { statusCode: 500, body: JSON.stringify({ error: 'حدث خطأ داخلي' }) };
+  }
+}
+async function sendToAllChats(text) {
+  for (const chatId of CHAT_IDS) {
+    try {
+      const response = await fetch(
         `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`,
         {
           method: 'POST',
@@ -133,16 +141,16 @@ ${getStatsText()}
           })
         }
       );
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error(`Telegram Error for ${chatId}:`, errorData);
+      }
+    } catch (err) {
+      console.error(`Failed to send to ${chatId}:`, err);
     }
-
-    return { statusCode: 200, body: JSON.stringify({ success: true }) };
-
-  } catch (error) {
-    console.error('Server Error:', error);
-    return { statusCode: 500, body: JSON.stringify({ error: 'حدث خطأ داخلي' }) };
   }
 }
-
 // التعامل مع أوامر البوت (مثل /start)
 async function handleTelegramWebhook(event) {
   try {
