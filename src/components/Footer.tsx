@@ -181,7 +181,7 @@ const Footer: React.FC = () => {
               </li>
                <li className="flex items-center space-x-2 rtl:space-x-reverse">
       <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-      <span>أعمال الستيل</span> 
+      <span>أعمال الاستانلس ستيل</span> 
     </li>
               <li className="flex items-center space-x-2 rtl:space-x-reverse">
                 <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>

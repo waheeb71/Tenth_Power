@@ -81,7 +81,7 @@ async function handleContactForm(event) {
       aluminum: 'أعمال الألمنيوم',
       contracting: 'المقاولات العامة',
       consultation: 'استشارة',
-      steel: 'أعمال الستيل',
+      steel: 'أعمال الاستانلس ستيل',
       '': 'غير محدد'
     };
 

@@ -138,7 +138,7 @@ const ContactForm = () => {
           <option value="glass">أعمال الزجاج</option>
           <option value="aluminum">أعمال الألمنيوم</option>
           <option value="contracting">المقاولات العامة</option>
-          <option value="steel">أعمال الستيل</option>
+          <option value="steel">أعمال الاستانلس ستيل</option>
           <option value="consultation">استشارة</option>
 
         </select>

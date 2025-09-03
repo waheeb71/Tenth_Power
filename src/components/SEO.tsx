@@ -23,7 +23,7 @@ const SEO: React.FC<SEOProps> = ({
   "alternateName": "The Tenth Power General Contracting",
   "url": "https://stunning-bubblegum-f108c3.netlify.app", 
   "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png",
-  "description": "القوة العاشرة للمقاولات العامة متخصصة في أعمال الزجاج، الستيل، والألمنيوم، وتقديم حلول مبتكرة ومتميزة في جميع المشاريع.",
+  "description": "القوة العاشرة للمقاولات العامة متخصصة في أعمال الزجاج،والاستانلس ستيل، والألمنيوم، وتقديم حلول مبتكرة ومتميزة في جميع المشاريع.",
   "address": {
       "@type": "PostalAddress",
   "streetAddress": "شارع الملك فهد، حي العليا",
