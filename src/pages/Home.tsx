@@ -1,9 +1,9 @@
 import React from 'react';
-import HeroSection from "../components/HeroSection"; // تأكد من المسار الصحيح
+
 import { Link } from 'react-router-dom';
 import { ArrowRight, CheckCircle, Award, Users, Clock, Star } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-
+import SectionWithBackground from "../components/SectionWithBackground"; 
 const Home: React.FC = () => {
   const { t } = useLanguage();
 
@@ -28,7 +28,38 @@ const Home: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50"></div>
         <div className="absolute inset-0 bg-gradient-to-r from-amber-500/10 to-blue-500/10"></div>
         
-        <HeroSection t={t} />
+       <SectionWithBackground section="hero" t={t}>
+  <div className="space-y-8 text-center">
+    <h1 className="text-4xl lg:text-6xl font-bold space-y-2">
+      <span>{t("home.hero.title")}</span>
+      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">
+        {t("home.hero.subtitle")}
+      </span>
+    </h1>
+
+    <p className="text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+      {t("home.hero.description")}
+    </p>
+
+    <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+      <Link
+        to="/contact"
+        className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 rtl:space-x-reverse"
+      >
+        <span>{t("home.hero.cta")}</span>
+        <ArrowRight className="w-5 h-5" />
+      </Link>
+      <Link
+        to="/projects"
+        className="border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-white hover:text-gray-900 transition-all duration-300"
+      >
+        {t("home.hero.explore")}
+      </Link>
+    </div>
+  </div>
+</SectionWithBackground>
+
+
 
         {/* Animated background elements */}
         <div className="absolute top-10 left-10 w-20 h-20 bg-amber-500/20 rounded-full blur-xl animate-pulse"></div>

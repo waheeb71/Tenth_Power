@@ -4,21 +4,25 @@ import ContactForm from '../components/contact/ContactForm';
 import ContactInfo from '../components/contact/ContactInfo';
 import ContactMap from '../components/contact/ContactMap';
 import WorkingHours from '../components/contact/WorkingHours';
-
+import SectionWithBackground from "../components/SectionWithBackground"; 
 const ContactPage: React.FC = () => {
   const { t } = useLanguage();
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('contact.title')}</h1>
+    
+
+      <SectionWithBackground section="contact" t={t}>
+   <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('contact.title')}</h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             نحن هنا للإجابة على جميع استفساراتكم ومساعدتكم في تحقيق مشاريعكم
           </p>
-        </div>
-      </section>
+        
+</SectionWithBackground>
+
+      
+
 
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

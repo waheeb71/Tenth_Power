@@ -1,7 +1,7 @@
 import React from 'react';
 import { Award, Users, Target, Eye } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-
+import SectionWithBackground from "../components/SectionWithBackground"; 
 const About: React.FC = () => {
   const { t } = useLanguage();
 
@@ -31,16 +31,13 @@ const About: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('about.title')}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              {t('about.description')}
-            </p>
-          </div>
-        </div>
-      </section>
+    <SectionWithBackground section="about" t={t}>
+     <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t("about.title")}</h1>
+        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          {t("about.description")}
+        </p>
+</SectionWithBackground>
+
 
       {/* Company Story */}
       <section className="py-20">

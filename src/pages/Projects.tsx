@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Star, Filter } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-
+import SectionWithBackground from "../components/SectionWithBackground"; 
 interface Project {
   id: string;
   title: string;
@@ -94,16 +94,15 @@ const Projects: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('projects.title')}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+    
+
+      <SectionWithBackground section="projects" t={t}>
+ <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('projects.title')}</h1>
+ <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               اكتشفوا مجموعة من أفضل مشاريعنا المنجزة بنجاح والتي تعكس خبرتنا وإتقاننا
             </p>
-          </div>
-        </div>
-      </section>
+</SectionWithBackground>
+
 
       {/* Filter Section */}
       <section className="py-8 bg-gray-50 border-b">

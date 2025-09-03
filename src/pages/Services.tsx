@@ -1,7 +1,7 @@
 import React from 'react';
 import { Shield, Settings, Building, Wrench, CheckCircle } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-
+import SectionWithBackground from "../components/SectionWithBackground"; 
 const Services: React.FC = () => {
   const { t } = useLanguage();
 
@@ -57,16 +57,13 @@ const Services: React.FC = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-gray-900 to-gray-800 text-white py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('services.title')}</h1>
-            <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              نقدم مجموعة شاملة من الخدمات المتخصصة في مجال المقاولات والزجاج والألمنيوم
-            </p>
-          </div>
-        </div>
-      </section>
+   <SectionWithBackground section="services" t={t}>
+  <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t('services.title')}</h1>
+  <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+    نقدم مجموعة شاملة من الخدمات المتخصصة في مجال المقاولات والزجاج والألمنيوم
+  </p>
+</SectionWithBackground>
+
 
       {/* Services Section */}
       <section className="py-20">
