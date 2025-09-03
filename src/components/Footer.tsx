@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
     >
       <img
         src="/icons/telegram.svg"
-        alt="Telegram - تواصل مع القوة العاشرة للمقاولات العامة، أعمال الزجاج والألمنيوم والستيل"
+        alt="Telegram - تواصل مع القوة العاشرة للمقاولات العامة، أعمال الزجاج والألمنيومو أعمال الاستانلس ستيل"
         className="w-5 h-5 brightness-0 invert"
       />
     </a>
@@ -107,7 +107,7 @@ const Footer: React.FC = () => {
     >
       <img
         src="/icons/whatsapp.svg"
-        alt="WhatsApp - تواصل مباشرة مع القوة العاشرة للمقاولات العامة، متخصصون في الزجاج والألمنيوم والستيل"
+        alt="WhatsApp - تواصل مباشرة مع القوة العاشرة للمقاولات العامة، متخصصون في الزجاج والألمنيومو أعمال الاستانلس ستيل"
         className="w-5 h-5 brightness-0 invert"
       />
     </a>
@@ -122,7 +122,7 @@ const Footer: React.FC = () => {
     >
       <img
         src="/icons/snapchat.svg"
-        alt="Snapchat - شاهد مشاريع القوة العاشرة للمقاولات العامة في الزجاج والألمنيوم والستيل"
+        alt="Snapchat - شاهد مشاريع القوة العاشرة للمقاولات العامة في الزجاج والألمنيومو أعمال الاستانلس ستيل"
         className="w-5 h-5 filter brightness-0 invert"
       />
     </a>
