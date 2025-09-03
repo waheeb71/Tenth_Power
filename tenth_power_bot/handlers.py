@@ -2,17 +2,19 @@
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup, KeyboardButton, ReplyKeyboardMarkup
 from telegram.ext import ContextTypes, CommandHandler, MessageHandler, filters, CallbackQueryHandler
 from ai_handler import get_ai_response
-from config import COMPANY_NAME, CONTACT_PHONE, CONTACT_EMAIL, CONTACT_LOCATION, SERVICES, ADMIN_IDS
+from config import COMPANY_NAME, CONTACT_PHONE, CONTACT_EMAIL, CONTACT_LOCATION, SERVICES, ADMIN_IDS,FACEBOOK_URL,INSTAGRAM_URL,TELEGRAM_URL,WHATSAPP_URL,SNAPCHAT_URL,TIKTOK_URL,WEBSITE_URL
 
 
-user_messages = {}  # {message_id: (user_id, text)}
+user_messages = {}  
 
 def main_menu():
     keyboard = [
         [InlineKeyboardButton("📋 الخدمات", callback_data="services")],
         [InlineKeyboardButton("📞 اتصل بنا", callback_data="contact")],
         [InlineKeyboardButton("💬 استشارة فنية", callback_data="consult")],
-        [InlineKeyboardButton("📩 إرسال رسالة للمشرف", callback_data="send_admin")]
+        [InlineKeyboardButton("📩 إرسال رسالة للمشرف", callback_data="send_admin")],
+        [InlineKeyboardButton("تابعنا على السوشيال", callback_data="social")],  # الزر الجديد
+        [InlineKeyboardButton("الموقع الإلكتروني", url="https://stunning-bubblegum-f108c3.netlify.app/")],  # الزر الجديد
     ]
     return InlineKeyboardMarkup(keyboard)
 
@@ -39,6 +41,17 @@ async def handle_reply_buttons(update: Update, context: ContextTypes.DEFAULT_TYP
             "اختر من القائمة:",
             reply_markup=main_menu()
         )
+social_buttons = [
+    [InlineKeyboardButton("فيسبوك", url=FACEBOOK_URL)],
+    [InlineKeyboardButton("إنستغرام", url=INSTAGRAM_URL)],
+    [InlineKeyboardButton("تيليجرام", url=TELEGRAM_URL)],
+    [InlineKeyboardButton("واتساب", url=WHATSAPP_URL)],
+    [InlineKeyboardButton("سناب شات", url=SNAPCHAT_URL)],
+    [InlineKeyboardButton("تيك توك", url=TIKTOK_URL)],
+    [InlineKeyboardButton("الموقع الإلكتروني", url=WEBSITE_URL)],
+]
+
+social_menu = InlineKeyboardMarkup(social_buttons)
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
@@ -59,7 +72,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             "يمكنك الاتصال بنا على مدار الساعة!",
             reply_markup=main_menu()
         )
-    
+    elif query.data == "social":
+        await query.edit_message_text(
+        "تابعنا على مواقع التواصل الاجتماعي:",
+        reply_markup=social_menu
+     )
     elif query.data == "consult":
         await query.edit_message_text(
             "اكتب سؤالك أو استفسارك، وسأجيبك فورًا باستخدام الذكاء الاصطناعي.",
