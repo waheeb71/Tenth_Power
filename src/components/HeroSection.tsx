@@ -20,7 +20,7 @@ export default function HeroSection({ t }) {
 
  const defaultSettings = {
     bg_type: "gradient",
-    bg_value: "linear-gradient(to bottom right, #e10b0bff, #333)"
+    bg_value: "linear-gradient(to bottom right, #15f6c5ff, #398deeff)"
   };
 
   const heroSettings = settings || defaultSettings;
