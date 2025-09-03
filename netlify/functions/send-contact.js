@@ -21,7 +21,7 @@ function updateStats() {
   stats.messagesToday += 1;
 }
 
-// تنسيق الإحصائيات
+/*
 function getStatsText() {
   return `
 📊 *إحصائيات الرسائل*
@@ -30,8 +30,13 @@ function getStatsText() {
 📌 *الإجمالي:* ${stats.totalMessages} رسالة
 📆 آخر تحديث: ${new Date().toLocaleString('ar-SA')}
   `.trim();
-}
 
+
+
+${getStatsText()}
+    `.trim();
+}
+*/
 // وظيفة لتهريب Markdown
 function escapeMarkdown(text) {
   return text
@@ -106,7 +111,8 @@ ${escapeMarkdown(message)}
 \`\`\`
 
 ⏰ *الوقت:* ${new Date().toLocaleString('ar-SA')}
-${getStatsText()}
+
+
     `.trim();
 
     // إرسال إلى Telegram

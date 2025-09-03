@@ -2,7 +2,7 @@
 import { ContactFormData, PreferredContactMethod } from '../types/contact';
 
 // ⚠️ استبدل بالـ Token الخاص بك
-const TELEGRAM_BOT_TOKEN = "7802830207:AAEHM6fA33LffnQqY4DhQavGWVg8-u2Hu5w";
+const TELEGRAM_BOT_TOKEN = "";
 const TELEGRAM_CHAT_ID = "5887234832"; 
 
 
