@@ -87,32 +87,35 @@ export const generateStructuredData = (type: string, data: any) => {
 };
 
 export const organizationStructuredData = {
-  "@context": "https://schema.org",
+ "@context": "https://schema.org",
   "@type": "Organization",
   "name": "القوة العاشرة للمقاولات العامة",
   "alternateName": "The Tenth Power General Contracting",
-  "url": "https://tenth-power.com",
-  "logo": "https://tenth-power.com/logo.png",
-  "description": "شركة رائدة في مجال المقاولات العامة والزجاج والألمنيوم",
+  "url": "https://stunning-bubblegum-f108c3.netlify.app", 
+  "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png",
+  "description": "القوة العاشرة للمقاولات العامة متخصصة في أعمال الزجاج،والاستانلس ستيل، والألمنيوم، وتقديم حلول مبتكرة ومتميزة في جميع المشاريع.",
   "address": {
-    "@type": "PostalAddress",
-    "addressCountry": "SA",
-    "addressLocality": "الرياض",
-    "addressRegion": "الرياض",
-    "streetAddress": "شارع الملك فهد"
+      "@type": "PostalAddress",
+  "streetAddress": "شارع الملك فهد، حي العليا",
+  "addressLocality": "الرياض",
+  "addressRegion": "الرياض",
+  "postalCode": "12345",
+  "addressCountry": "المملكة العربية السعودية"
   },
+
   "contactPoint": {
-    "@type": "ContactPoint",
-    "telephone": "+966532438253",
-    "contactType": "customer service",
-    "email": "Zjajkryt78@gmail.com",
-    "availableLanguage": ["Arabic", "English"]
+     "@type": "ContactPoint",
+      "telephone": "+966532438253",
+      "contactType": "customer service",
+      "areaServed": "SA",
+      "availableLanguage": ["Arabic", "English"],
+      "email": "Zjajkryt78@gmail.com"
   },
   "sameAs": [
-    "https://facebook.com/tenthpower",
-    "https://twitter.com/tenthpower",
-    "https://instagram.com/tenthpower",
-    "https://linkedin.com/company/tenthpower"
+    "https://www.facebook.com/share/1B76d6yTDp",
+    "https://www.instagram.com/ZJJ4021",
+   "https://www.tiktok.com/@user0532438253?_t=ZS-8zOaCY7q4xg&_r=1",
+   "https://www.snapchat.com/add/zjjskryt24?share_id=dOfCOthKqmw&locale=ar-AE"
   ],
   "foundingDate": "2008",
   "numberOfEmployees": "50-100",
