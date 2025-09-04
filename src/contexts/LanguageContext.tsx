@@ -33,6 +33,9 @@ const translations = {
     'services.aluminum.description': 'تصنيع وتركيب هياكل الألمنيوم والنوافذ والأبواب',
     'services.contracting.title': 'المقاولات العامة',
     'services.contracting.description': 'إدارة وتنفيذ المشاريع الإنشائية من التخطيط حتى التسليم',
+    'services.stainless.title': 'أعمال الاستانلس ستيل',
+    'services.stainless.description': 'تصميم وتنفيذ التركيبات المعدنية المصنوعة من الاستانلس ستيل بجودة عالية',
+
     
     // About
     'about.title': 'من نحن',
@@ -95,7 +98,9 @@ const translations = {
     'services.aluminum.description': 'Manufacturing and installation of aluminum structures, windows and doors',
     'services.contracting.title': 'General Contracting',
     'services.contracting.description': 'Management and execution of construction projects from planning to delivery',
-    
+    'services.stainless.title': 'Stainless Steel Works',
+'services.stainless.description': 'Design and implementation of high-quality stainless steel installations',
+
     // About
     'about.title': 'About Us',
     'about.description': 'The Tenth Power General Contracting, your trusted partner in achieving distinguished architectural projects',

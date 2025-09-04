@@ -10,16 +10,16 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = 'القوة العاشرة للمقاولات العامة - شركة رائدة في الزجاج والألمنيوم',
-  description = 'شركة القوة العاشرة للمقاولات العامة، متخصصون في أعمال الزجاج والألمنيوم والمقاولات العامة. خبرة تمتد لأكثر من 15 سنة في تنفيذ المشاريع المعمارية المتميزة.',
-  keywords = 'مقاولات عامة، زجاج، ألمنيوم، بناء، تشييد، مقاولات الرياض، شركة مقاولات السعودية',
+  title = 'زجاج القوة العاشرة ',
+  description = 'زجاج القوة العاشرة للمقاولات العامة، متخصصون في أعمال الزجاج والألمنيوم والمقاولات العامة. خبرة تمتد لأكثر من 15 سنة في تنفيذ المشاريع المعمارية المتميزة .',
+  keywords = 'زجاج سكريت ,مقاولات عامة، زجاج، ألمنيوم، بناء، تشييد، مقاولات الرياض، شركة مقاولات السعودية',
   image = '/logo.png',
   url = 'https://tenth-power.com'
 }) => {
   const structuredData = {
    "@context": "https://schema.org",
   "@type": "Organization",
-  "name": "القوة العاشرة للمقاولات العامة",
+  "name": "زجاج القوة العاشرة  ",
   "alternateName": "The Tenth Power General Contracting",
   "url": "https://stunning-bubblegum-f108c3.netlify.app", 
   "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png",

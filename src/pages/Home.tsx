@@ -14,12 +14,7 @@ const Home: React.FC = () => {
     { icon: CheckCircle, title: 'ضمان الجودة', description: 'أعلى معايير الجودة والإتقان' }
   ];
 
-  const stats = [
-    { number: '500+', label: 'مشروع منجز' },
-    { number: '15+', label: 'سنة خبرة' },
-    { number: '98%', label: 'رضا العملاء' },
-    { number: '50+', label: 'عميل سعيد' }
-  ];
+
 
   return (
     <div className="min-h-screen">
@@ -106,8 +101,12 @@ const Home: React.FC = () => {
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Glass Services */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-blue-500 to-blue-600"></div>
+             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+  <img
+    src="/images/glass.jpeg"
+    alt="Stainless Steel"
+    className="h-48 w-full object-cover"
+  />
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('services.glass.title')}</h3>
                 <p className="text-gray-600 mb-4">{t('services.glass.description')}</p>
@@ -122,8 +121,12 @@ const Home: React.FC = () => {
             </div>
 
             {/* Aluminum Services */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-gray-500 to-gray-600"></div>
+               <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+  <img
+    src="/images/aluminum.jpeg"
+    alt="Stainless Steel"
+    className="h-48 w-full object-cover"
+  />
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('services.aluminum.title')}</h3>
                 <p className="text-gray-600 mb-4">{t('services.aluminum.description')}</p>
@@ -137,7 +140,7 @@ const Home: React.FC = () => {
               </div>
             </div>
 
-            {/* General Contracting */}
+            {/* General Contracting 
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
               <div className="h-48 bg-gradient-to-br from-amber-500 to-amber-600"></div>
               <div className="p-6">
@@ -151,25 +154,33 @@ const Home: React.FC = () => {
                   <ArrowRight className="w-4 h-4 mr-2" />
                 </Link>
               </div>
-            </div>
+            </div>*/}
+
+             {/* General Contracting */}
+           <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
+  <img
+    src="/images/stainless.jpg"
+    alt="Stainless Steel"
+    className="h-48 w-full object-cover"
+  />
+  <div className="p-6">
+    <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('services.stainless.title')}</h3>
+    <p className="text-gray-600 mb-4">{t('services.stainless.description')}</p>
+    <Link
+      to="/services"
+      className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200"
+    >
+      <span>اقرأ المزيد</span>
+      <ArrowRight className="w-4 h-4 mr-2" />
+    </Link>
+  </div>
+</div>
+
           </div>
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-amber-500 to-amber-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold mb-2">{stat.number}</div>
-                <div className="text-lg opacity-90">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
+    
       {/* CTA Section */}
     <section className="py-20 bg-white text-gray-900">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

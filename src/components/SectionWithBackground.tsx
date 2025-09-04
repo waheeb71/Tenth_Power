@@ -25,7 +25,7 @@ const mediaFiles: Record<string, { type: "image" | "video"; src: string }[]> = {
   hero: [
     { type: "image", src: "/media/2.jpg" },
     { type: "image", src: "/media/3.jpg" },
-    { type: "video", src: "/media/hero-video.mp4" },
+    { type: "video", src: "" },
   ],
   services: [{ type: "image", src: "/media/image.png" }],
   projects: [{ type: "image", src: "/media/6.jpg" }],
@@ -64,16 +64,16 @@ export default function SectionWithBackground({ section, children }: Props) {
         />
       )}
 
-      {settings.bg_type === "video" && (
+      {/*settings.bg_type === "video" && (
         <video autoPlay loop muted playsInline className="absolute inset-0 w-full h-full object-cover">
           <source src={settings.bg_value} type="video/mp4" />
         </video>
-      )}
+      )*/ }
 
       {/* Overlay فقط للصور والفيديو */}
-      {(settings.bg_type === "image" || settings.bg_type === "video") && (
+      {/*(settings.bg_type === "image" || settings.bg_type === "video") && (
         <div className="absolute inset-0 bg-black/40" />
-      )}
+      )*/}
 
       {/* المحتوى */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">

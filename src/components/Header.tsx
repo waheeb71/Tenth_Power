@@ -2,12 +2,12 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Globe, Settings } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import { useAuth } from '../contexts/AuthContext';
+
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { language, toggleLanguage, t } = useLanguage();
-  const { isAuthenticated } = useAuth();
+  
   const location = useLocation();
 
   const navigation = [
@@ -71,25 +71,15 @@ const Header: React.FC = () => {
           {/* Language Toggle & Admin */}
         
           <div className="hidden md:flex items-center space-x-3 rtl:space-x-reverse">
-            {/* Language Toggle */}
+            {/* Language Toggle 
             <button
               onClick={toggleLanguage}
               className="flex items-center space-x-2 rtl:space-x-reverse px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl transition-all duration-200 font-medium text-sm group"
             >
               <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform" />
               <span>{language === 'ar' ? 'EN' : 'ع'}</span>
-            </button>
+            </button>*/}
 
-            {/* Admin Button */}
-            {isAuthenticated && (
-              <Link
-                to="/admin"
-                className="flex items-center space-x-2 rtl:space-x-reverse px-4 py-2.5 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-xl hover:from-blue-700 hover:to-indigo-800 transition-all duration-300 shadow-md hover:shadow-lg font-medium text-sm group"
-              >
-                <Settings className="w-4 h-4 group-hover:scale-110 transition-transform" />
-                <span>{t('nav.admin')}</span>
-              </Link>
-            )}
           </div>
 
           {/* Mobile menu button */}
@@ -129,16 +119,7 @@ const Header: React.FC = () => {
                   <span className="text-sm font-medium">{language === 'ar' ? 'EN' : 'ع'}</span>
                 </button>
                 
-                {isAuthenticated && (
-                  <Link
-                    to="/admin"
-                    onClick={() => setIsMenuOpen(false)}
-                    className="flex items-center space-x-2 rtl:space-x-reverse px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    <Settings className="w-4 h-4" />
-                    <span className="text-sm font-medium">{t('nav.admin')}</span>
-                  </Link>
-                )}
+              
               </div>
             </div>
           </div>

@@ -61,7 +61,7 @@ def index():
     return "TENTH POWER BOT is Running!", 200
 
 if __name__ == "__main__":
-    TOKEN = "8268998908:AAHq-vI_Tfth17kmEClRUusoE7a4vnxycpk"
+    TOKEN = ""
     ptb_app = ApplicationBuilder().token(TOKEN).build()
     setup_handlers(ptb_app)
 
