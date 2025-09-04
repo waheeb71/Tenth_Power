@@ -159,7 +159,7 @@ const Home: React.FC = () => {
              {/* General Contracting */}
            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
   <img
-    src="/images/stainless.jpg"
+    src="/images/stainless.jpeg"
     alt="Stainless Steel"
     className="h-48 w-full object-cover"
   />

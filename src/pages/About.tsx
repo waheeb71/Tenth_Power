@@ -59,7 +59,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="aspect-w-4 aspect-h-3 rounded-xl overflow-hidden shadow-2xl">
                 <img
-                  src="https://images.pexels.com/photos/3862365/pexels-photo-3862365.jpeg"
+                  src="images/logo.jpg"
                   alt="شركة القوة العاشرة"
                   className="w-full h-96 object-cover"
                 />
@@ -104,10 +104,12 @@ const About: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-2xl">
               <Eye className="w-12 h-12 text-amber-600 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">رؤيتنا</h3>
-              <p className="text-lg text-gray-700 leading-relaxed">
-                أن نكون الشركة الرائدة والمفضلة في مجال المقاولات العامة وأعمال الزجاج والألمنيوم، 
-                ونساهم في بناء مستقبل أفضل من خلال مشاريع متميزة تلبي احتياجات عملائنا وتفوق توقعاتهم.
-              </p>
+           <p className="text-lg text-gray-700 leading-relaxed">
+أن نكون الشركة الرائدة والمفضلة في مجال أعمال الزجاج والألمنيوم والاستانلس ستيل، 
+وأن نساهم في تطوير بيئة عمرانية حديثة من خلال تقديم منتجات وخدمات عالية الجودة 
+تفوق توقعات عملائنا.
+</p>
+
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
