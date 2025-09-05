@@ -1,0 +1,254 @@
+:root {
+  --primary-color: #0c09bc; 
+  --primary-color-hover: #0F766E; 
+  --body-bg: #0F172A;
+  --section-bg: #1E293B; 
+  --card-bg: #334155; 
+  --text-light: #F1F5F9; 
+  --text-medium: #94A3B8; 
+  --text-darker: #64748B; 
+  --border-color: #334155; 
+  --border-color-light: #475569;
+  --border-color-timeline: #fdfdfd; 
+}
+
+body {
+  background-color: var(--body-bg);
+  color: var(--text-medium);
+  font-family: "Public Sans", "Noto Sans", sans-serif;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: -2.8rem;
+  top: 1.5rem;
+  bottom: -0.5rem;
+  width: 2px;
+  background-color: var(--border-color-timeline);
+  z-index: 0;
+}
+
+html[dir="rtl"] .timeline-item::before {
+  left: auto;
+  right: -2.8rem;
+}
+
+.timeline-item:last-child::before {
+  display: none;
+}
+
+.mobile-menu {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  z-index: 49;
+  position: absolute;
+  width: 40%;
+  left: 0;
+  background: var(--section-bg);
+  top: 10%; 
+  opacity: 0;
+}
+
+.mobile-menu.open {
+  max-height: 1000px;
+  height: auto; 
+  opacity: 1;
+  visibility: visible;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--body-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 10px;
+  border: 2px solid var(--body-bg);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--primary-color-hover);
+}
+
+*:focus-visible {
+  outline: 2px solid var(--primary-color) !important;
+  outline-offset: 2px !important;
+}
+
+.lang-button.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.wave-bar {
+  position: relative;
+  overflow: hidden;
+}
+
+.wave-bar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  height: 100%;
+  width: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 25%,
+    rgba(9, 241, 210, 0.8) 50%,
+    transparent 75%
+  );
+  animation: wave 5s linear infinite;
+  border-radius: inherit;
+}
+
+[dir="rtl"] .wave-bar::before {
+  animation: wave-rtl 5s linear infinite;
+}
+
+@keyframes wave {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes wave-rtl {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: -100%;
+  }
+}
+
+.icon-wave {
+  position: relative;
+  overflow: hidden;
+}
+
+.icon-wave::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(148, 246, 207, 0.7) 50%,
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.icon-wave.animate::after {
+  animation: wave-move 2.5s linear;
+  opacity: 1;
+}
+
+@keyframes wave-move {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+.wave-effect {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.wave-effect::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.5) 50%,
+    transparent 60%
+  );
+  transform: rotate(25deg);
+  animation: wave-move 12.5s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes wave-move {
+  0% {
+    transform: translateX(-100%) rotate(25deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(25deg);
+  }
+}
+
+.icon-wave {
+  position: relative;
+  display: inline-block;
+  animation: pulse-wave 3s infinite ease-in-out;
+}
+
+@keyframes pulse-wave {
+  0% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px var(--primary-color));
+  }
+  50% {
+    transform: scale(1.1);
+    filter: drop-shadow(0 0 8px var(--primary-color));
+  }
+  100% {
+    transform: scale(1);
+    filter: drop-shadow(0 0 0px var(--primary-color));
+  }
+}
+
+.icon-fill-water {
+  overflow: hidden;
+}
+
+.icon-fill-water::after {
+  content: '';
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(72, 255, 0, 33); 
+  animation: fillWater 20s infinite ease-in-out;
+  z-index: 1;
+  mix-blend-mode: lighten;
+  border-radius: 50%;
+}
+
+@keyframes fillWater {
+  0% {
+    bottom: -100%;
+  }
+  50% {
+    bottom: 0%;
+  }
+  100% {
+    bottom: -100%;
+  }
+}

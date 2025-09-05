@@ -1,253 +1,68 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
-import { TelegramIcon } from "./icons/TelegramIcon";
-import { WhatsAppIcon } from "./icons/WhatsAppIcon";
-import { useLanguage } from '../contexts/LanguageContext';
 
-const Footer: React.FC = () => {
-  const { t } = useLanguage();
+interface FooterProps {
+  currentLanguage: string;
+}
+
+const Footer: React.FC<FooterProps> = ({ currentLanguage }) => {
+  const translations = {
+    ar: {
+      footerRightsReserved: "جميع الحقوق محفوظة.",
+      footerYear: "2025",
+      footerName: "وهيب الشرعبي"
+    },
+    en: {
+      footerRightsReserved: "All rights reserved.",
+      footerYear: "2025",
+      footerName: "Waheeb Al-Sharabi"
+    }
+  };
+
+  const t = translations[currentLanguage as keyof typeof translations];
 
   return (
-  <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white relative overflow-hidden">
-      {/* Wave Separator */}
-       <div className="w-full overflow-hidden leading-none">
-        <svg
-          className="relative block w-full h-12 sm:h-16"
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 1200 120"
-          preserveAspectRatio="none"
-        >
-          <defs>
-            <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#9800f0ff" />
-              <stop offset="50%" stopColor="#d97706" />
-              <stop offset="100%" stopColor="#c5c0b4ff" />
-            </linearGradient>
-          </defs>
-          <path
-            d="M0,0 C300,80 900,0 1200,80 L1200,0 L0,0 Z"
-            fill="url(#waveGradient)"
-          ></path>
-        </svg>
-      </div>
+    <footer className="py-8 text-center text-[var(--text-darker)] text-sm border-t border-[var(--border-color)] bg-[var(--section-bg)]">
+      <div className="flex flex-col items-center gap-4">
+        <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 px-4">
+          {/* Python Icon */}
+          <a href="https://www.python.org" target="_blank" rel="noopener noreferrer" aria-label="Python" className="icon-wave text-gray-400 hover:text-[#3776AB] transition-colors" title="Python">
+            <svg role="img" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <title>Python</title>
+              <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
+            </svg>
+          </a>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
-        
-        {/* Footer Content */}
-        <div className="flex flex-col items-center gap-10 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:items-start py-16">
-          
-    
-         {/* Company Info */}
-<div className="space-y-5">
-  <div className="flex items-center space-x-4 rtl:space-x-reverse">
-    <img
-      src="/logo.png"
-      alt="شعار القوة العاشرة للمقاولات العامة"
-      className="w-14 h-14 object-cover rounded-full border-2 border-amber-500 shadow-lg"
-    />
-    <div>
-      <h3 className="text-xl font-extrabold bg-gradient-to-r from-amber-400 to-white bg-clip-text text-transparent">
-        القوة العاشرة
-      </h3>
-      <p className="text-amber-200 text-sm font-medium">للمقاولات العامة</p>
-    </div>
-  </div>
+          {/* JavaScript Icon */}
+          <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer" aria-label="JavaScript" className="icon-wave text-gray-400 hover:text-[#F7DF1E] transition-colors" title="JavaScript">
+            <svg role="img" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <title>JavaScript</title>
+              <path d="M0 0h24v24H0V0zm22.034 18.276c-.175-1.095-.888-2.015-3.003-2.873-.736-.345-1.554-.585-1.797-1.14-.091-.33-.105-.51-.046-.705.15-.646.915-.84 1.515-.66.39.12.75.42.976.9 1.034-.676 1.034-.676 1.755-1.125-.27-.42-.404-.601-.586-.78-.63-.705-1.469-1.065-2.834-1.034l-.705.089c-.676.165-1.32.525-1.71 1.005-1.14 1.291-.811 3.541.569 4.471 1.365 1.02 3.361 1.244 3.616 2.205.24 1.17-.87 1.545-1.966 1.41-.811-.18-1.26-.586-1.755-1.336l-1.83 1.051c.21.48.45.689.81 1.109 1.74 1.756 6.09 1.666 6.871-1.004.029-.09.24-.705.074-1.65l.046.067zm-8.983-7.245h-2.248c0 1.938-.009 3.864-.009 5.805 0 1.232.063 2.363-.138 2.711-.33.689-1.18.601-1.566.48-.396-.196-.597-.466-.83-.855-.063-.105-.11-.196-.127-.196l-1.825 1.125c.305.63.75 1.172 1.324 1.517.855.51 2.004.675 3.207.405.783-.226 1.458-.691 1.811-1.411.51-.93.402-2.07.397-3.346.012-2.054 0-4.109 0-6.179l.004-.056z"/>
+            </svg>
+          </a>
 
-  <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
-    شركة رائدة في مجال المقاولات، الزجاج، والألمنيوم. نُحقق أحلامك بجودة لا تُضاهى.
-  </p>
+          {/* Kali Linux Icon */}
+          <a href="https://www.kali.org/" target="_blank" rel="noopener noreferrer" aria-label="Kali Linux" className="icon-wave text-gray-400 hover:text-[#557C94] transition-colors" title="Kali Linux">
+            <svg role="img" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <title>Kali Linux</title>
+              <path d="M12.778 5.943s-1.97-.13-5.327.92c-3.42 1.07-5.36 2.587-5.36 2.587s5.098-2.847 10.852-3.008zm7.351 3.095l.257-.017s-1.468-1.78-4.278-2.648c1.58.642 2.954 1.493 4.021 2.665zm.42.74c.039-.068.166.217.263.337.004.024.01.039-.045.027-.005-.025-.013-.032-.013-.032s-.135-.08-.177-.137c-.041-.057-.049-.157-.028-.195zm3.448 8.479s.312-3.578-5.31-4.403a18.277 18.277 0 0 0-2.524-.187c-4.506.06-4.67-5.197-1.275-5.462 1.407-.116 3.087.643 4.73 1.408-.007.204.002.385.136.552.134.168.648.35.813.445.164.094.691.43 1.014.85.07-.131.654-.512.654-.512s-.14.003-.465-.119c-.326-.122-.713-.49-.722-.511-.01-.022-.015-.055.06-.07.059-.049-.072-.207-.13-.265-.058-.058-.445-.716-.454-.73-.009-.016-.012-.031-.04-.05-.085-.027-.46.04-.46.04s-.575-.283-.774-.893c.003.107-.099.224 0 .469-.3-.127-.558-.344-.762-.88-.12.305 0 .499 0 .499s-.707-.198-.82-.85c-.124.293 0 .469 0 .469s-1.153-.602-3.069-.61c-1.283-.118-1.55-2.374-1.43-2.754 0 0-1.85-.975-5.493-1.406-3.642-.43-6.628-.065-6.628-.065s6.45-.31 11.617 1.783c.176.785.704 2.094.989 2.723-.815.563-1.733 1.092-1.876 2.97-.143 1.878 1.472 3.53 3.474 3.58 1.9.102 3.214.116 4.806.942 1.52.84 2.766 3.4 2.89 5.703.132-1.709-.509-5.383-3.5-6.498 4.181.732 4.549 3.832 4.549 3.832zM12.68 5.663l-.15-.485s-2.484-.441-5.822-.204C3.37 5.211 0 6.38 0 6.38s6.896-1.735 12.68-.717Z"/>
+            </svg>
+          </a>
 
-  {/* Social Icons */}
-  <div className="flex space-x-4 rtl:space-x-reverse pt-3">
-    {/* Facebook */}
-    <a
-      href="https://www.facebook.com/share/1B76d6yTDp/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تابعنا على فيسبوك"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <Facebook className="w-5 h-5 text-gray-100" />
-    </a>
-
-    {/* Instagram */}
-    <a
-      href="https://www.instagram.com/ZJJ4021"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تابعنا على إنستغرام"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <Instagram className="w-5 h-5 text-gray-100" />
-    </a>
-
-    {/* Telegram */}
-    <a
-      href="https://t.me/Ponamoha"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تواصل معنا على تيليجرام"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/telegram.svg"
-        alt="Telegram - تواصل مع القوة العاشرة للمقاولات العامة، أعمال الزجاج والألمنيومو أعمال الاستانلس ستيل"
-        className="w-5 h-5 brightness-0 invert"
-      />
-    </a>
-
-    {/* WhatsApp */}
-    <a
-      href="https://wa.me/966532438253"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تحدث معنا على واتساب"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/whatsapp.svg"
-        alt="WhatsApp - تواصل مباشرة مع القوة العاشرة للمقاولات العامة، متخصصون في الزجاج والألمنيومو أعمال الاستانلس ستيل"
-        className="w-5 h-5 brightness-0 invert"
-      />
-    </a>
-
-    {/* Snapchat */}
-    <a
-      href="https://www.snapchat.com/add/zjjskryt24?share_id=dOfCOthKqmw&locale=ar-AE"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تابعنا على سناب شات"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/snapchat.svg"
-        alt="Snapchat - شاهد مشاريع القوة العاشرة للمقاولات العامة في الزجاج والألمنيومو أعمال الاستانلس ستيل"
-        className="w-5 h-5 filter brightness-0 invert"
-      />
-    </a>
-
-    {/* TikTok */}
-    <a
-      href="https://www.tiktok.com/@user0532438253?_t=ZS-8zOaCY7q4xg&_r=1"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="شاهدنا على تيك توك"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/tiktok.svg"
-        alt=""
-        className="w-5 h-5 filter brightness-0 invert"
-      />
-    </a>
-  </div>
-</div>
-
-          {/* Quick Links */}
-          <div className="space-y-5">
-            <h3 className="text-lg font-semibold text-white">روابط سريعة</h3>
-            <ul className="space-y-3">
-              {[
-                { path: '/', label: t('nav.home') },
-                { path: '/about', label: t('nav.about') },
-                { path: '/services', label: t('nav.services') },
-                { path: '/projects', label: t('nav.projects') },
-              ].map((item) => (
-                <li key={item.path}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-300 hover:text-amber-400 transition-all duration-200 flex items-center group"
-                  >
-                    <span className="w-1 h-1 bg-transparent group-hover:bg-amber-400 rounded-full mr-2 rtl:mr-0 rtl:ml-2 transition-colors duration-200"></span>
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Services */}
-          <div className="space-y-5">
-            <h3 className="text-lg font-semibold text-white">خدماتنا</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>أعمال الزجاج المعماري</span>
-              </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>تركيب الألمنيوم</span>
-              </li>
-               <li className="flex items-center space-x-2 rtl:space-x-reverse">
-      <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-      <span>أعمال الاستانلس ستيل</span> 
-    </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>المقاولات العامة</span>
-              </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>الصيانة والدعم</span>
-              </li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-white">تواصل معنا</h3>
-            <div className="space-y-4">
-              <div className="flex items-start space-x-3 rtl:space-x-reverse group">
-                <Phone className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-gray-300">هاتف</p>
-                  <a href="tel:+966532438253" className="text-white hover:text-amber-400 transition-colors duration-200 font-medium">
-                   +966 53 243 8253
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                <Mail className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-gray-300">البريد</p>
-                  <a href="mailto:Zjajkryt78@gmail.com" className="text-white hover:text-amber-400 transition-colors duration-200 text-sm">
-                    Zjajkryt78@gmail.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                <MapPin className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
-                <div>
-                  <p className="text-sm text-gray-300">الموقع</p>
-                  <p className="text-white text-sm">المملكة العربية السعودية</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Call Button for Mobile */}
-            <div className="sm:hidden mt-6">
-              <a
-                href="tel:+966532438253"
-                className="w-full flex items-center justify-center space-x-2 rtl:space-x-reverse bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-amber-500/30"
-              >
-                <Phone className="w-4 h-4" />
-                <span>اتصل بنا الآن</span>
-              </a>
-            </div>
-          </div>
+          {/* Flutter Icon */}
+          <a href="https://flutter.dev/" target="_blank" rel="noopener noreferrer" aria-label="Flutter" className="icon-wave text-gray-400 hover:text-[#02569B] transition-colors" title="Flutter">
+            <svg role="img" viewBox="0 0 24 24" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+              <title>Flutter</title>
+              <path d="M13.565 0L2.376 11.187l3.623 3.624L21.623.001h-8.058zm.014 11.072L7.093 17.558l6.486 6.486H21.62l-6.473-6.472 6.473-6.472h-8.042z"/>
+            </svg>
+          </a>
         </div>
-{/* Colored Divider */}
-        <div className="h-1 w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 my-6 rounded-full"></div>
 
-        {/* Divider & Copyright */}
-        <div className="border-t border-gray-700/50 pt-8 pb-6 mt-8">
-          <p className="text-gray-400 text-sm text-center transition-opacity duration-300">
-            © 2025 القوة العاشرة للمقاولات العامة. جميع الحقوق محفوظة.
-          </p>
-        </div>
+        <p className="text-xs"> 
+          <span>{t.footerRightsReserved}</span>
+          <span dir="ltr" style={{unicodeBidi: 'isolate'}}>
+            © <span>{t.footerYear}</span> <span>{t.footerName}</span>.
+          </span>
+        </p>
       </div>
     </footer>
   );
