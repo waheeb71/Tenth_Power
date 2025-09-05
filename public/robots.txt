@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+
+Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap.xml

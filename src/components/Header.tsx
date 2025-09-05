@@ -1,188 +1,131 @@
-import React from 'react';
-import { Menu } from 'lucide-react';
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Menu, X, Globe, Settings } from 'lucide-react';
+import { useLanguage } from '../contexts/LanguageContext';
 
-interface HeaderProps {
-  currentLanguage: string;
-  onLanguageChange: (lang: string) => void;
-  mobileMenuOpen: boolean;
-  onToggleMobileMenu: () => void;
-}
 
-const Header: React.FC<HeaderProps> = ({ 
-  currentLanguage, 
-  onLanguageChange, 
-  mobileMenuOpen, 
-  onToggleMobileMenu 
-}) => {
-  const translations = {
-    ar: {
-      headerName: "وهيب الشرعبي",
-      navAbout: "عني",
-      navSkills: "المهارات",
-      navExperience: "الخبرات",
-      navEducation: "التعليم",
-      navCertifications: "الشهادات",
-      navProjects: "المشاريع"
-    },
-    en: {
-      headerName: "Waheeb Al-Sharabi",
-      navAbout: "About",
-      navSkills: "Skills",
-      navExperience: "Experience",
-      navEducation: "Education",
-      navCertifications: "Certifications",
-      navProjects: "Projects"
-    }
-  };
+const Header: React.FC = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, toggleLanguage, t } = useLanguage();
+  
+  const location = useLocation();
 
-  const t = translations[currentLanguage as keyof typeof translations];
+  const navigation = [
+    { name: t('nav.home'), href: '/' },
+    { name: t('nav.about'), href: '/about' },
+    { name: t('nav.services'), href: '/services' },
+    { name: t('nav.projects'), href: '/projects' },
+    { name: t('nav.contact'), href: '/contact' }
+  ];
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      if (mobileMenuOpen) {
-        onToggleMobileMenu();
-      }
-    }
-  };
+  const isActive = (path: string) => location.pathname === path;
 
   return (
-    <>
-      <header className="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[var(--border-color)] bg-[var(--section-bg)] px-4 md:px-10 py-4 shadow-md">
-        <div className="flex items-center gap-3">
-          <h2 className="wave-effect text-[var(--text-light)] text-xl font-bold leading-tight tracking-[-0.015em]">
-            {t.headerName}
-          </h2>
-        </div>
-        
-        <div className="flex items-center gap-1">
-          <button 
-            className="md:hidden flex items-center justify-center rounded-lg h-10 bg-[var(--card-bg)] hover:bg-[var(--border-color)] text-[var(--text-light)] hover:text-[var(--primary-color)] gap-2 text-sm font-medium leading-normal tracking-[0.015em] min-w-0 px-3 transition-colors" 
-            onClick={onToggleMobileMenu}
-            aria-label="Toggle menu" 
-            aria-expanded={mobileMenuOpen}
-          >
-            <Menu size={20} />
-          </button>
-          
-          <nav className="hidden md:flex items-center gap-8">
-            <button 
-              className="text-[var(--text-medium)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
-              onClick={() => scrollToSection('about')}
-            >
-              {t.navAbout}
-            </button>
-            <button 
-              className="text-[var(--text-medium)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
-              onClick={() => scrollToSection('skills')}
-            >
-              {t.navSkills}
-            </button>
-            <button 
-              className="text-[var(--text-medium)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
-              onClick={() => scrollToSection('experience')}
-            >
-              {t.navExperience}
-            </button>
-            <button 
-              className="text-[var(--text-medium)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
-              onClick={() => scrollToSection('education')}
-            >
-              {t.navEducation}
-            </button>
-            <button 
-              className="text-[var(--text-medium)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
-              onClick={() => scrollToSection('certifications')}
-            >
-              {t.navCertifications}
-            </button>
-            <button 
-              className="text-[var(--text-medium)] hover:text-[var(--primary-color)] text-sm font-medium leading-normal transition-colors"
-              onClick={() => scrollToSection('projects')}
-            >
-              {t.navProjects}
-            </button>
+    <header className="bg-white shadow-lg sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
+          {/* Logo */}
+        <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
+  <img 
+    src="/logo.png" 
+    alt="شعار الشركة" 
+    className="w-12 h-12 object-contain"
+  />
+            <div className="flex flex-col">
+           <div>
+  <h3 
+    className="text-xl font-extrabold bg-gradient-to-r from-amber-500 via-orange-600 to-amber-700 bg-clip-text text-transparent"
+  >
+    القوة العاشرة
+  </h3>
+  <p className="text-gray-600 text-sm font-medium">
+    للمقاولات العامة
+  </p>
+</div>
+            </div>
+          </Link>
+
+
+          {/* Desktop Navigation */}
+          <nav className="hidden md:flex items-center space-x-1 rtl:space-x-reverse">
+            {navigation.map((item) => (
+              <Link
+                key={item.href}
+                to={item.href}
+                className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 relative group ${
+                  isActive(item.href)
+                    ? 'text-amber-600 bg-amber-50'
+                    : 'text-gray-700 hover:text-amber-600 hover:bg-gray-100'
+                }`}
+              >
+                {item.name}
+                {/* Underline Animation */}
+                <span
+                  className={`absolute bottom-1 left-4 right-4 h-0.5 bg-amber-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ${
+                    isActive(item.href) ? 'scale-x-100' : ''
+                  }`}
+                ></span>
+              </Link>
+            ))}
           </nav>
+          {/* Language Toggle & Admin */}
+        
+          <div className="hidden md:flex items-center space-x-3 rtl:space-x-reverse">
+            {/* Language Toggle 
+            <button
+              onClick={toggleLanguage}
+              className="flex items-center space-x-2 rtl:space-x-reverse px-4 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-xl transition-all duration-200 font-medium text-sm group"
+            >
+              <Globe className="w-4 h-4 group-hover:rotate-12 transition-transform" />
+              <span>{language === 'ar' ? 'EN' : 'ع'}</span>
+            </button>*/}
 
-          <div className="wave-effect flex items-center gap-1.5 sm:gap-2 md:gap-2.5">
-            <button 
-              className={`lang-button p-1 rounded border border-[var(--border-color)] hover:bg-[var(--border-color)] transition-colors ${currentLanguage === 'ar' ? 'active' : ''}`}
-              onClick={() => onLanguageChange('ar')}
-              aria-label="Arabic Language"
-            >
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Flag_of_Yemen.svg/24px-Flag_of_Yemen.svg.png" 
-                alt="علم اليمن" 
-                className="w-6 h-4 rounded-sm object-cover" 
-              />
-            </button>
-            
-            <button 
-              className={`lang-button p-1 rounded border border-[var(--border-color)] hover:bg-[var(--border-color)] transition-colors ${currentLanguage === 'en' ? 'active' : ''}`}
-              onClick={() => onLanguageChange('en')}
-              aria-label="English Language"
-            >
-              <img 
-                src="https://upload.wikimedia.org/wikipedia/en/thumb/a/a4/Flag_of_the_United_States.svg/24px-Flag_of_the_United_States.svg.png" 
-                alt="USA Flag" 
-                className="w-6 h-4 rounded-sm object-cover" 
-              />
-            </button>
           </div>
-          
-          <div 
-            className="bg-center bg-no-repeat aspect-square bg-cover rounded-full w-10 h-10 border border-[var(--border-color)]" 
-            style={{
-              backgroundImage: 'url("https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&w=400")',
-              backgroundPosition: 'center top 30%'
-            }}
-          />
-        </div>
-      </header>
 
-      {/* Mobile Menu */}
-      <div className={`md:hidden mobile-menu bg-[var(--section-bg)] shadow-md border-b border-[var(--border-color)] ${mobileMenuOpen ? 'open' : ''}`}>
-        <div className="flex flex-col px-4 py-2">
-          <button 
-            className="wave-effect text-[var(--text-medium)] hover:text-[var(--primary-color)] py-2 text-sm font-medium leading-normal transition-colors border-b border-[var(--border-color-light)] text-left"
-            onClick={() => scrollToSection('about')}
+          {/* Mobile menu button */}
+          <button
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-gray-400 hover:text-gray-500 hover:bg-gray-100 transition-colors duration-200"
           >
-            {t.navAbout}
-          </button>
-          <button 
-            className="wave-effect text-[var(--text-medium)] hover:text-[var(--primary-color)] py-2 text-sm font-medium leading-normal transition-colors border-b border-[var(--border-color-light)] text-left"
-            onClick={() => scrollToSection('skills')}
-          >
-            {t.navSkills}
-          </button>
-          <button 
-            className="wave-effect text-[var(--text-medium)] hover:text-[var(--primary-color)] py-2 text-sm font-medium leading-normal transition-colors border-b border-[var(--border-color-light)] text-left"
-            onClick={() => scrollToSection('experience')}
-          >
-            {t.navExperience}
-          </button>
-          <button 
-            className="wave-effect text-[var(--text-medium)] hover:text-[var(--primary-color)] py-2 text-sm font-medium leading-normal transition-colors border-b border-[var(--border-color-light)] text-left"
-            onClick={() => scrollToSection('education')}
-          >
-            {t.navEducation}
-          </button>
-          <button 
-            className="wave-effect text-[var(--text-medium)] hover:text-[var(--primary-color)] py-2 text-sm font-medium leading-normal transition-colors border-b border-[var(--border-color-light)] text-left"
-            onClick={() => scrollToSection('certifications')}
-          >
-            {t.navCertifications}
-          </button>
-          <button 
-            className="wave-effect text-[var(--text-medium)] hover:text-[var(--primary-color)] py-2 text-sm font-medium leading-normal transition-colors border-b border-[var(--border-color-light)] text-left"
-            onClick={() => scrollToSection('projects')}
-          >
-            {t.navProjects}
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
+
+        {/* Mobile Navigation */}
+        {isMenuOpen && (
+          <div className="md:hidden">
+            <div className="px-2 pt-2 pb-3 space-y-1 bg-white border-t border-gray-200">
+              {navigation.map((item) => (
+                <Link
+                  key={item.href}
+                  to={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 ${
+                    isActive(item.href)
+                      ? 'text-amber-600 bg-amber-50'
+                      : 'text-gray-700 hover:text-amber-600 hover:bg-gray-50'
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              ))}
+              
+              <div className="flex items-center space-x-4 rtl:space-x-reverse px-3 py-2">
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center space-x-2 rtl:space-x-reverse px-3 py-2 rounded-lg border border-gray-300 hover:bg-gray-50 transition-colors duration-200"
+                >
+                  <Globe className="w-4 h-4" />
+                  <span className="text-sm font-medium">{language === 'ar' ? 'EN' : 'ع'}</span>
+                </button>
+                
+              
+              </div>
+            </div>
+          </div>
+        )}
       </div>
-    </>
+    </header>
   );
 };
 
