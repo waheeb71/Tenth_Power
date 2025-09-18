@@ -77,6 +77,158 @@ const Projects: React.FC = () => {
       location: 'مكة المكرمة',
       date: '2022',
       rating: 5
+    },
+      {
+      id: '7',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (1).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 2
+    }
+    ,
+      {
+      id: '8',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (2).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 2
+    }
+    ,
+      {
+      id: '9',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (3).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 2
+    }
+      ,
+      {
+      id: '10',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (4).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 2
+    }
+      ,
+      {
+      id: '11',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (5).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 3
+    }
+      ,
+      {
+      id: '12',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (6).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
+    }
+      ,
+      {
+      id: '13',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (7).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
+    }
+      ,
+      {
+      id: '14',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (8).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 3
+    }
+      ,
+      {
+      id: '15',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (9).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }
+      ,
+      {
+      id: '16',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (10).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 3
+    }
+      ,
+      {
+      id: '17',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (11).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
+    }
+      ,
+      {
+      id: '18',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (12).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }
+  ,
+      {
+      id: '19',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (13).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 2
+    }  ,
+      {
+      id: '20',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/glass5 (14).jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
     }
   ];
 
@@ -174,9 +326,10 @@ const Projects: React.FC = () => {
                         />
                       ))}
                     </div>
+                    {/*}
                     <button className="text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200">
                       عرض التفاصيل
-                    </button>
+                    </button>*/}
                   </div>
                 </div>
               </div>
