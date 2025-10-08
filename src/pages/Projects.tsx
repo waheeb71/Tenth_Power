@@ -229,6 +229,51 @@ const Projects: React.FC = () => {
      location: 'الرياض',
       date: '2025',
       rating: 4
+    }, {
+      id: '21',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new1.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 2
+    }, {
+      id: '22',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new2.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
+    }, {
+      id: '23',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new3.jpg',
+     location: "جدة",
+      date: '2025',
+      rating: 1
+    }, {
+      id: '24',
+      title: "",
+      category: 'aluminum',
+      description: "",
+      image: '/images/new4.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
+    }, {
+      id: '25',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new5.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 3
     }
   ];
 
