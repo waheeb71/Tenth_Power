@@ -264,7 +264,7 @@ const Projects: React.FC = () => {
       image: '/images/new4.jpg',
      location: 'الرياض',
       date: '2025',
-      rating: 4
+      rating: 5
     }, {
       id: '25',
       title: "",
@@ -273,7 +273,70 @@ const Projects: React.FC = () => {
       image: '/images/new5.jpg',
      location: 'الرياض',
       date: '2025',
-      rating: 3
+      rating: 5
+    }, {
+      id: '26',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new6.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }, {
+      id: '27',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new7.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }, {
+      id: '28',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new8.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }, {
+      id: '29',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new9.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }, {
+      id: '30',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new10.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 4
+    }, {
+      id: '31',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new11.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
+    }, {
+      id: '32',
+      title: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/new13.jpg',
+     location: 'الرياض',
+      date: '2025',
+      rating: 5
     }
   ];
 
