@@ -103,7 +103,7 @@ const Home: React.FC = () => {
             {/* Glass Services */}
              <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
   <img
-    src="/images/glass.jpeg"
+    src="/images/al-quwwa-al-ashira-custom-glass-riyadh-2025-1.jpg"
     alt="Stainless Steel"
     className="h-48 w-full object-cover"
   />
@@ -123,7 +123,7 @@ const Home: React.FC = () => {
             {/* Aluminum Services */}
                <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
   <img
-    src="/images/aluminum.jpeg"
+    src="/images/al-quwwa-al-ashira-aluminum-jeddah-2024.jpeg"
     alt="Stainless Steel"
     className="h-48 w-full object-cover"
   />
@@ -159,7 +159,7 @@ const Home: React.FC = () => {
              {/* General Contracting */}
            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
   <img
-    src="/images/stainless.jpeg"
+    src="/images/al-quwwa-al-ashira-stainless-steel-khobar-2023.jpeg"
     alt="Stainless Steel"
     className="h-48 w-full object-cover"
   />
