@@ -88,7 +88,7 @@ export const ImageSEO: React.FC<ImageSEOProps> = ({
           "creator": {
             "@type": "Organization",
             "name": companyName,
-            "url": "https://al-quwwa-al-ashira.com"
+            "url": "https://stunning-bubblegum-f108c3.netlify.app"
           },
           "locationCreated": location,
           "dateCreated": date,
@@ -136,7 +136,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
           "publisher": {
             "@type": "Organization",
             "name": companyName,
-            "url": "https://al-quwwa-al-ashira.com"
+            "url": "https://stunning-bubblegum-f108c3.netlify.app"
           },
           "image": images.map(img => ({
             "@type": "ImageObject",

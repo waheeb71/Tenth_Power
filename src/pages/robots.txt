@@ -11,8 +11,8 @@ Allow: /uploads/
 Allow: /media/
 
 # Sitemap locations
-Sitemap: https://al-quwwa-al-ashira.com/sitemap.xml
-Sitemap: https://al-quwwa-al-ashira.com/sitemap-images.xml
+Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap.xml
+Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap-images.xml
 
 # Crawl-delay (optional - helps with server load)
 Crawl-delay: 1

@@ -1,6 +1,32 @@
+# Robots.txt for القوة العاشرة للمقاولات والزجاج والألمنيوم
+# Allow all crawlers access to all content
+
 User-agent: *
 Allow: /
-Disallow: /admin/
-Disallow: /api/
 
+# Special directives for image crawling
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /uploads/
+Allow: /media/
+
+# Sitemap locations
 Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap.xml
+Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap-images.xml
+
+# Crawl-delay (optional - helps with server load)
+Crawl-delay: 1
+
+# Disallow admin and private areas
+Disallow: /admin/
+Disallow: /private/
+Disallow: /.well-known/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+
+# Allow important pages for SEO
+Allow: /projects
+Allow: /services  
+Allow: /about
+Allow: /contact
+Allow: /gallery

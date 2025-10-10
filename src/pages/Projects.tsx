@@ -29,10 +29,13 @@ const OptimizedImage: React.FC<{
 }> = ({ src, alt, title, className = '' }) => {
   return (
     <picture>
-      <source srcSet={`${src.replace('.jpg', '.webp').replace('.jpeg', '.webp')}`} type="image/webp" />
+   
+      <source srcSet={src} type="image/webp" />
       <source srcSet={src} type="image/jpeg" />
+       <source srcSet={src} type="image/jpg" />
+        <source srcSet={src} type="image/png" />
       <img
-        src={src}
+        src={src || '/images/logo.jpg'}
         alt={alt}
         title={title}
         loading="lazy"
@@ -104,7 +107,7 @@ const Projects: React.FC = () => {
       seoTitle: 'اعمال الومنيوم القوة العاشرة - نوافذ وأبواب جدة 2024',
       category: 'aluminum',
       description: 'تصميم وتركيب نوافذ وأبواب الألمنيوم الفاخرة مع عزل حراري متقدم من شركة القوة العاشرة في جدة - حلول ألمنيوم مبتكرة للمباني الحديثة',
-      image: '/images/al-quwwa-al-ashira-aluminum-jeddah-2024.jpg',
+      image: '/images/al-quwwa-al-ashira-aluminum-jeddah-2024.jpeg',
       location: 'جدة',
       date: '2024',
       rating: 5,
@@ -116,7 +119,7 @@ const Projects: React.FC = () => {
       seoTitle: 'مقاولات عامة القوة العاشرة - مشاريع الدمام 2023',
       category: 'contracting',
       description: 'مشاريع مقاولات عامة احترافية من شركة القوة العاشرة في الدمام - تنفيذ مشاريع البناء والتشييد بأعلى معايير الجودة والسلامة',
-      image: '/images/al-quwwa-al-ashira-contracting-dammam-2023.jpg',
+      image: '/images/al-quwwa-al-ashira-contracting-dammam-2023.jpeg',
       location: 'الدمام',
       date: '2023',
       rating: 5,
@@ -128,7 +131,7 @@ const Projects: React.FC = () => {
       seoTitle: 'اعمال زجاج متقدمة القوة العاشرة - تقنيات حديثة الرياض 2023',
       category: 'glass',
       description: 'تطبيق أحدث تقنيات الزجاج المعماري من شركة القوة العاشرة - زجاج ذكي وحلول زجاجية مبتكرة للمباني العصرية في الرياض',
-      image: '/images/al-quwwa-al-ashira-advanced-glass-riyadh-2023.jpg',
+      image: '/images/al-quwwa-al-ashira-advanced-glass-riyadh-2023.jpeg',
       location: 'الرياض',
       date: '2023',
       rating: 5,
@@ -152,7 +155,7 @@ const Projects: React.FC = () => {
       seoTitle: 'مجمع سكني راقي القوة العاشرة - 200 وحدة مكة المكرمة 2022',
       category: 'contracting',
       description: 'بناء مجمع سكني متكامل يضم 200 وحدة سكنية مع جميع المرافق من تنفيذ شركة القوة العاشرة - مشروع سكني رائد في مكة المكرمة بأعلى معايير العمران',
-      image: '/images/al-quwwa-al-ashira-residential-makkah-2022.jpg',
+      image: '/images/al-quwwa-al-ashira-residential-makkah-2022.jpeg',
       location: 'مكة المكرمة',
       date: '2022',
       rating: 5,
@@ -176,7 +179,7 @@ const Projects: React.FC = () => {
       seoTitle: 'واجهات زجاجية حديثة القوة العاشرة - تصاميم عصرية الرياض 2025',
       category: 'glass',
       description: 'تصميم وتنفيذ واجهات زجاجية بتقنيات حديثة من شركة القوة العاشرة - واجهات عصرية تجمع بين الجمال والوظائف المتقدمة في الرياض',
-      image: '/images/al-quwwa-al-ashira-modern-facade-riyadh-2025-2.jpg',
+      image: '/images/al-quwwa-al-ashira-modern-facade-riyadh-2025-2.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 5,
@@ -489,12 +492,12 @@ const Projects: React.FC = () => {
     "@type": "CollectionPage",
     "name": "مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات",
     "description": "اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات في المملكة العربية السعودية",
-    "url": "https://al-quwwa-al-ashira.com/projects",
+    "url": "https://stunning-bubblegum-f108c3.netlify.app/projects",
     "publisher": {
       "@type": "Organization",
       "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
-      "url": "https://al-quwwa-al-ashira.com",
-      "logo": "https://al-quwwa-al-ashira.com/logo.png",
+      "url": "https://stunning-bubblegum-f108c3.netlify.app",
+      "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png",
       "sameAs": [
         "https://www.instagram.com/alquwwaalashira",
         "https://www.facebook.com/alquwwaalashira",
@@ -517,8 +520,8 @@ const Projects: React.FC = () => {
         <meta property="og:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات" />
         <meta property="og:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات في المملكة العربية السعودية" />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://al-quwwa-al-ashira.com/projects" />
-        <meta property="og:image" content="https://al-quwwa-al-ashira.com/images/al-quwwa-al-ashira-projects-overview.jpg" />
+        <meta property="og:url" content="https://stunning-bubblegum-f108c3.netlify.app/projects" />
+        <meta property="og:image" content="https://stunning-bubblegum-f108c3.netlify.app/images/al-quwwa-al-ashira-projects-overview.jpg" />
         <meta property="og:locale" content="ar_SA" />
         <meta property="og:site_name" content="القوة العاشرة للمقاولات والزجاج والألمنيوم" />
         
@@ -526,7 +529,7 @@ const Projects: React.FC = () => {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات" />
         <meta name="twitter:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات" />
-        <meta name="twitter:image" content="https://al-quwwa-al-ashira.com/images/al-quwwa-al-ashira-projects-overview.jpg" />
+        <meta name="twitter:image" content="https://stunning-bubblegum-f108c3.netlify.app/images/al-quwwa-al-ashira-projects-overview.jpg" />
         
         {/* Additional SEO Tags */}
         <meta name="robots" content="index, follow, max-image-preview:large" />
@@ -538,7 +541,7 @@ const Projects: React.FC = () => {
         <meta name="ICBM" content="24.7136, 46.6753" />
         
         {/* Canonical URL */}
-        <link rel="canonical" href="https://al-quwwa-al-ashira.com/projects" />
+        <link rel="canonical" href="https://stunning-bubblegum-f108c3.netlify.app/projects" />
         
         {/* Structured Data */}
         <script type="application/ld+json">
@@ -675,7 +678,7 @@ const Projects: React.FC = () => {
                   {/* Hidden Company Info */}
                   <div className="hidden" itemProp="creator" itemScope itemType="http://schema.org/Organization">
                     <span itemProp="name">القوة العاشرة للمقاولات والزجاج والألمنيوم</span>
-                    <span itemProp="url">https://al-quwwa-al-ashira.com</span>
+                    <span itemProp="url">https://stunning-bubblegum-f108c3.netlify.app</span>
                   </div>
                 </div>
               </article>
@@ -751,7 +754,7 @@ const Projects: React.FC = () => {
           "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
           "alternateName": ["زجاج القوة العاشرة", "الومنيوم القوة العاشرة", "مقاولات القوة العاشرة"],
           "description": "شركة رائدة في أعمال الزجاج والألمنيوم والمقاولات العامة في المملكة العربية السعودية",
-          "url": "https://al-quwwa-al-ashira.com",
+          "url": "https://stunning-bubblegum-f108c3.netlify.app",
           "telephone": "+966123456789",
           "address": {
             "@type": "PostalAddress",
