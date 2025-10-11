@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Facebook, Instagram } from 'lucide-react';
+import { Phone, Mail, MapPin, Facebook, Instagram, ArrowRight, Sparkles } from 'lucide-react';
 import { TelegramIcon } from "./icons/TelegramIcon";
 import { WhatsAppIcon } from "./icons/WhatsAppIcon";
 import { useLanguage } from '../contexts/LanguageContext';
@@ -9,246 +9,259 @@ const Footer: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-  <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-amber-900 text-white relative overflow-hidden">
-      {/* Wave Separator */}
-       <div className="w-full overflow-hidden leading-none">
+    <footer className="relative bg-gradient-to-br from-slate-900 via-gray-900 to-amber-900 text-white overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden">
+        {/* Floating orbs */}
+        <div className="absolute top-10 left-10 w-32 h-32 bg-amber-500/10 rounded-full blur-xl animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-40 h-40 bg-purple-500/10 rounded-full blur-xl animate-pulse delay-500"></div>
+        <div className="absolute top-1/2 left-1/3 w-24 h-24 bg-blue-500/10 rounded-full blur-xl animate-pulse delay-1000"></div>
+        
+        {/* Grid pattern */}
+        <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]"></div>
+      </div>
+
+      {/* Enhanced Wave Separator */}
+      <div className="w-full overflow-hidden leading-none relative">
         <svg
-          className="relative block w-full h-12 sm:h-16"
+          className="relative block w-full h-16 sm:h-20 lg:h-24"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1200 120"
           preserveAspectRatio="none"
         >
           <defs>
             <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stopColor="#9800f0ff" />
-              <stop offset="50%" stopColor="#d97706" />
-              <stop offset="100%" stopColor="#c5c0b4ff" />
+              <stop offset="0%" stopColor="#8b5cf6" />
+              <stop offset="25%" stopColor="#3b82f6" />
+              <stop offset="50%" stopColor="#f59e0b" />
+              <stop offset="75%" stopColor="#ef4444" />
+              <stop offset="100%" stopColor="#8b5cf6" />
             </linearGradient>
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+              <feMerge> 
+                <feMergeNode in="coloredBlur"/>
+                <feMergeNode in="SourceGraphic"/>
+              </feMerge>
+            </filter>
           </defs>
           <path
-            d="M0,0 C300,80 900,0 1200,80 L1200,0 L0,0 Z"
+            d="M0,0 C150,80 350,0 500,60 C650,120 850,20 1000,80 C1100,120 1150,60 1200,80 L1200,0 L0,0 Z"
             fill="url(#waveGradient)"
+            filter="url(#glow)"
+            className="animate-pulse"
           ></path>
         </svg>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Footer Content */}
-        <div className="flex flex-col items-center gap-10 sm:grid sm:grid-cols-2 lg:grid-cols-4 sm:items-start py-16">
+        {/* Main Footer Content */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 py-12 lg:py-16">
           
-    
-         {/* Company Info */}
-<div className="space-y-5">
-  <div className="flex items-center space-x-4 rtl:space-x-reverse">
-    <img
-      src="/logo.png"
-      alt="شعار القوة العاشرة للمقاولات العامة"
-      className="w-14 h-14 object-cover rounded-full border-2 border-amber-500 shadow-lg"
-    />
-    <div>
-      <h3 className="text-xl font-extrabold bg-gradient-to-r from-amber-400 to-white bg-clip-text text-transparent">
-        القوة العاشرة
-      </h3>
-      <p className="text-amber-200 text-sm font-medium">للمقاولات العامة</p>
-    </div>
-  </div>
+          {/* Enhanced Company Info */}
+          <div className="space-y-6 text-center md:text-right">
+            <div className="flex items-center justify-center md:justify-start space-x-4 rtl:space-x-reverse">
+              <div className="relative">
+                <img
+                  src="/logo.png"
+                  alt="شعار القوة العاشرة للمقاولات العامة"
+                  className="w-16 h-16 object-cover rounded-2xl border-2 border-amber-500 shadow-2xl shadow-amber-500/30 hover:scale-105 transition-transform duration-300"
+                />
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-gradient-to-r from-green-400 to-green-500 rounded-full animate-ping"></div>
+                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full"></div>
+              </div>
+              <div>
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-amber-400 via-yellow-300 to-amber-500 bg-clip-text text-transparent">
+                  القوة العاشرة
+                </h3>
+                <p className="text-amber-200 text-sm font-medium flex items-center justify-center md:justify-start space-x-1 rtl:space-x-reverse">
+                  <Sparkles className="w-3 h-3" />
+                  <span>للمقاولات العامة</span>
+                </p>
+              </div>
+            </div>
 
-  <p className="text-gray-300 text-sm leading-relaxed max-w-xs">
-    شركة رائدة في مجال المقاولات، الزجاج، والألمنيوم. نُحقق أحلامك بجودة لا تُضاهى.
-  </p>
+            <p className="text-gray-300 text-sm leading-relaxed max-w-sm mx-auto md:mx-0">
+              شركة رائدة في مجال المقاولات، الزجاج، والألمنيوم. نُحقق أحلامك بجودة لا تُضاهى وخبرة تمتد لسنوات.
+            </p>
 
-  {/* Social Icons */}
-  <div className="flex space-x-4 rtl:space-x-reverse pt-3">
-    {/* Facebook */}
-    <a
-      href="https://www.facebook.com/share/1B76d6yTDp/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تابعنا على فيسبوك"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <Facebook className="w-5 h-5 text-gray-100" />
-    </a>
+            {/* Enhanced Social Icons */}
+            <div className="flex flex-wrap justify-center md:justify-start gap-3 pt-4">
+              {[
+                { href: "https://www.facebook.com/share/1B76d6yTDp/", icon: Facebook, label: "فيسبوك", color: "hover:bg-blue-600" },
+                { href: "https://www.instagram.com/ZJJ4021", icon: Instagram, label: "إنستغرام", color: "hover:bg-pink-600" },
+                { href: "https://t.me/Ponamoha", icon: "/icons/telegram.svg", label: "تيليجرام", color: "hover:bg-blue-500", isImage: true },
+                { href: "https://wa.me/966532438253", icon: "/icons/whatsapp.svg", label: "واتساب", color: "hover:bg-green-600", isImage: true },
+                { href: "https://www.snapchat.com/add/zjjskryt24", icon: "/icons/snapchat.svg", label: "سناب شات", color: "hover:bg-yellow-500", isImage: true },
+                { href: "https://www.tiktok.com/@user0532438253", icon: "/icons/tiktok.svg", label: "تيك توك", color: "hover:bg-black", isImage: true }
+              ].map((social, index) => (
+                <a
+                  key={index}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                  className={`group relative flex items-center justify-center w-12 h-12 bg-gradient-to-br from-gray-800 to-gray-700 ${social.color} rounded-xl transition-all duration-300 transform hover:scale-110 hover:-translate-y-1 shadow-lg hover:shadow-2xl`}
+                >
+                  {social.isImage ? (
+                    <img
+                      src={social.icon}
+                      alt={social.label}
+                      className="w-5 h-5 brightness-0 invert group-hover:brightness-100 group-hover:invert-0 transition-all duration-300"
+                    />
+                  ) : (
+                    <social.icon className="w-5 h-5 text-gray-100 group-hover:text-white transition-colors duration-300" />
+                  )}
+                  
+                  {/* Tooltip */}
+                  <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                    {social.label}
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
 
-    {/* Instagram */}
-    <a
-      href="https://www.instagram.com/ZJJ4021"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تابعنا على إنستغرام"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <Instagram className="w-5 h-5 text-gray-100" />
-    </a>
-
-    {/* Telegram */}
-    <a
-      href="https://t.me/Ponamoha"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تواصل معنا على تيليجرام"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/telegram.svg"
-        alt="Telegram - تواصل مع القوة العاشرة للمقاولات العامة، أعمال الزجاج والألمنيومو أعمال الاستانلس ستيل"
-        className="w-5 h-5 brightness-0 invert"
-      />
-    </a>
-
-    {/* WhatsApp */}
-    <a
-      href="https://wa.me/966532438253"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تحدث معنا على واتساب"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/whatsapp.svg"
-        alt="WhatsApp - تواصل مباشرة مع القوة العاشرة للمقاولات العامة، متخصصون في الزجاج والألمنيومو أعمال الاستانلس ستيل"
-        className="w-5 h-5 brightness-0 invert"
-      />
-    </a>
-
-    {/* Snapchat */}
-    <a
-      href="https://www.snapchat.com/add/zjjskryt24?share_id=dOfCOthKqmw&locale=ar-AE"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="تابعنا على سناب شات"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/snapchat.svg"
-        alt="Snapchat - شاهد مشاريع القوة العاشرة للمقاولات العامة في الزجاج والألمنيومو أعمال الاستانلس ستيل"
-        className="w-5 h-5 filter brightness-0 invert"
-      />
-    </a>
-
-    {/* TikTok */}
-    <a
-      href="https://www.tiktok.com/@user0532438253?_t=ZS-8zOaCY7q4xg&_r=1"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="شاهدنا على تيك توك"
-      className="flex items-center justify-center w-10 h-10 bg-gray-800 hover:bg-amber-600 rounded-full transition-all duration-300 transform hover:scale-110 shadow-md hover:shadow-amber-500/20"
-    >
-      <img
-        src="/icons/tiktok.svg"
-        alt=""
-        className="w-5 h-5 filter brightness-0 invert"
-      />
-    </a>
-  </div>
-</div>
-
-          {/* Quick Links */}
-          <div className="space-y-5">
-            <h3 className="text-lg font-semibold text-white">روابط سريعة</h3>
+          {/* Enhanced Quick Links */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white flex items-center space-x-2 rtl:space-x-reverse">
+              <div className="w-1 h-6 bg-gradient-to-b from-amber-400 to-amber-600 rounded-full"></div>
+              <span>روابط سريعة</span>
+            </h3>
             <ul className="space-y-3">
               {[
-                { path: '/', label: t('nav.home') },
-                { path: '/about', label: t('nav.about') },
-                { path: '/services', label: t('nav.services') },
-                { path: '/projects', label: t('nav.projects') },
+                { path: '/', label: t('nav.home'), icon: "🏠" },
+                { path: '/about', label: t('nav.about'), icon: "ℹ️" },
+                { path: '/services', label: t('nav.services'), icon: "🔧" },
+                { path: '/projects', label: t('nav.projects'), icon: "📋" },
               ].map((item) => (
                 <li key={item.path}>
                   <Link
                     to={item.path}
-                    className="text-gray-300 hover:text-amber-400 transition-all duration-200 flex items-center group"
+                    className="group flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-amber-400 transition-all duration-300 p-2 rounded-lg hover:bg-white/5"
                   >
-                    <span className="w-1 h-1 bg-transparent group-hover:bg-amber-400 rounded-full mr-2 rtl:mr-0 rtl:ml-2 transition-colors duration-200"></span>
-                    {item.label}
+                    <span className="text-sm">{item.icon}</span>
+                    <span className="flex-1">{item.label}</span>
+                    <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 transition-all duration-300" />
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="space-y-5">
-            <h3 className="text-lg font-semibold text-white">خدماتنا</h3>
-            <ul className="space-y-2 text-gray-300 text-sm">
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>أعمال الزجاج المعماري</span>
-              </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>تركيب الألمنيوم</span>
-              </li>
-               <li className="flex items-center space-x-2 rtl:space-x-reverse">
-      <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-      <span>أعمال الاستانلس ستيل</span> 
-    </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>المقاولات العامة</span>
-              </li>
-              <li className="flex items-center space-x-2 rtl:space-x-reverse">
-                <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
-                <span>الصيانة والدعم</span>
-              </li>
+          {/* Enhanced Services */}
+          <div className="space-y-6">
+            <h3 className="text-xl font-bold text-white flex items-center space-x-2 rtl:space-x-reverse">
+              <div className="w-1 h-6 bg-gradient-to-b from-purple-400 to-purple-600 rounded-full"></div>
+              <span>خدماتنا</span>
+            </h3>
+            <ul className="space-y-3">
+              {[
+                { text: "أعمال الزجاج المعماري", icon: "🏢" },
+                { text: "تركيب الألمنيوم", icon: "🔩" },
+                { text: "أعمال الاستانلس ستيل", icon: "✨" },
+                { text: "المقاولات العامة", icon: "🏗️" },
+                { text: "الصيانة والدعم", icon: "🛠️" }
+              ].map((service, index) => (
+                <li key={index} className="group flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-white transition-all duration-300 p-2 rounded-lg hover:bg-white/5">
+                  <span className="text-sm">{service.icon}</span>
+                  <div className="flex items-center space-x-2 rtl:space-x-reverse">
+                    <span className="w-2 h-2 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full group-hover:scale-125 transition-transform duration-300"></span>
+                    <span className="text-sm">{service.text}</span>
+                  </div>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
+          {/* Enhanced Contact Info */}
           <div className="space-y-6">
-            <h3 className="text-lg font-semibold text-white">تواصل معنا</h3>
+            <h3 className="text-xl font-bold text-white flex items-center space-x-2 rtl:space-x-reverse">
+              <div className="w-1 h-6 bg-gradient-to-b from-green-400 to-green-600 rounded-full"></div>
+              <span>تواصل معنا</span>
+            </h3>
             <div className="space-y-4">
-              <div className="flex items-start space-x-3 rtl:space-x-reverse group">
-                <Phone className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+              <div className="group flex items-start space-x-4 rtl:space-x-reverse p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Phone className="w-5 h-5 text-white" />
+                </div>
                 <div>
-                  <p className="text-sm text-gray-300">هاتف</p>
-                  <a href="tel:+966532438253" className="text-white hover:text-amber-400 transition-colors duration-200 font-medium">
+                  <p className="text-sm text-gray-400 mb-1">هاتف</p>
+                  <a href="tel:+966532438253" className="text-white hover:text-green-400 transition-colors duration-200 font-medium text-lg">
                    +966 53 243 8253
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                <Mail className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+              <div className="group flex items-start space-x-4 rtl:space-x-reverse p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <Mail className="w-5 h-5 text-white" />
+                </div>
                 <div>
-                  <p className="text-sm text-gray-300">البريد</p>
-                  <a href="mailto:Zjajkryt78@gmail.com" className="text-white hover:text-amber-400 transition-colors duration-200 text-sm">
+                  <p className="text-sm text-gray-400 mb-1">البريد الإلكتروني</p>
+                  <a href="mailto:Zjajkryt78@gmail.com" className="text-white hover:text-blue-400 transition-colors duration-200 text-sm break-all">
                     Zjajkryt78@gmail.com
                   </a>
                 </div>
               </div>
 
-              <div className="flex items-start space-x-3 rtl:space-x-reverse">
-                <MapPin className="w-5 h-5 text-amber-500 mt-0.5 flex-shrink-0" />
+              <div className="group flex items-start space-x-4 rtl:space-x-reverse p-3 rounded-xl hover:bg-white/5 transition-all duration-300">
+                <div className="flex-shrink-0 w-10 h-10 bg-gradient-to-br from-red-500 to-red-600 rounded-xl flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+                  <MapPin className="w-5 h-5 text-white" />
+                </div>
                 <div>
-                  <p className="text-sm text-gray-300">الموقع</p>
+                  <p className="text-sm text-gray-400 mb-1">الموقع</p>
                   <p className="text-white text-sm">المملكة العربية السعودية</p>
                 </div>
               </div>
             </div>
 
-            {/* Call Button for Mobile */}
-            <div className="sm:hidden mt-6">
+            {/* Enhanced Call Button for Mobile */}
+            <div className="md:hidden mt-8">
               <a
                 href="tel:+966532438253"
-                className="w-full flex items-center justify-center space-x-2 rtl:space-x-reverse bg-amber-600 hover:bg-amber-700 text-white py-3 px-6 rounded-xl font-medium transition-all duration-300 shadow-lg hover:shadow-amber-500/30"
+                className="group w-full flex items-center justify-center space-x-3 rtl:space-x-reverse bg-gradient-to-r from-amber-600 to-amber-700 hover:from-amber-700 hover:to-amber-800 text-white py-4 px-6 rounded-2xl font-bold text-lg transition-all duration-300 shadow-lg hover:shadow-2xl hover:shadow-amber-500/30 transform hover:scale-105"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-5 h-5 group-hover:animate-bounce" />
                 <span>اتصل بنا الآن</span>
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               </a>
             </div>
           </div>
         </div>
-{/* Colored Divider */}
-        <div className="h-1 w-full bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600 my-6 rounded-full"></div>
 
-        {/* Divider & Copyright */}
-        <div className="border-t border-gray-700/50 pt-8 pb-6 mt-8">
-          <p className="text-gray-400 text-sm text-center transition-opacity duration-300">
-            © 2025 القوة العاشرة للمقاولات العامة. جميع الحقوق محفوظة.
-          </p>
+        {/* Enhanced Decorative Divider */}
+        <div className="relative my-8">
+          <div className="h-px w-full bg-gradient-to-r from-transparent via-gray-600 to-transparent"></div>
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 px-4 bg-gradient-to-br from-slate-900 via-gray-900 to-amber-900">
+            <div className="w-8 h-8 bg-gradient-to-r from-amber-400 to-amber-600 rounded-full flex items-center justify-center">
+              <Sparkles className="w-4 h-4 text-white animate-pulse" />
+            </div>
+          </div>
+        </div>
+
+        {/* Enhanced Copyright */}
+        <div className="py-8 text-center">
+          <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0">
+            <p className="text-gray-400 text-sm flex items-center space-x-2 rtl:space-x-reverse">
+              <span>© 2025 القوة العاشرة للمقاولات العامة.</span>
+              <span className="hidden sm:inline">|</span>
+              <span>جميع الحقوق محفوظة.</span>
+            </p>
+            <div className="flex items-center space-x-4 rtl:space-x-reverse text-gray-400 text-sm">
+              <span className="flex items-center space-x-1 rtl:space-x-reverse">
+               {/* <span>صُنع بـ</span>
+                <span className="text-red-500 animate-pulse">❤️</span>
+                <span>في السعودية</span> */}
+              </span>
+            </div>
+          </div>
         </div>
       </div>
+
+      {/* Bottom glow effect */}
+      <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-purple-500 via-amber-500 to-purple-500 animate-pulse"></div>
     </footer>
   );
 };

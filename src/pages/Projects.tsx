@@ -472,6 +472,52 @@ const Projects: React.FC = () => {
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } , {
+      id: '33',
+      title: 'مشاريع القوة العاشرة المتنوعة',
+      seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-14.jpeg',
+      location: 'الرياض',
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
+    , {
+      id: '34',
+      title: 'مشاريع القوة العاشرة المتنوعة',
+      seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-15.jpeg',
+      location: 'الرياض',
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
+    ,{
+      id: '35',
+      title: 'مشاريع القوة العاشرة المتنوعة',
+      seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-16.jpeg',
+      location: 'الرياض',
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } , {
+      id: '36',
+      title: 'مشاريع القوة العاشرة المتنوعة',
+      seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-17.jpeg',
+      location: 'الرياض',
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
     } 
   ];
 
