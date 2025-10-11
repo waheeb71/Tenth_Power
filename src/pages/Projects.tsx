@@ -519,6 +519,74 @@ const Projects: React.FC = () => {
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
     } 
+    , {
+      id: '37',
+      title: 'مشاريع القوة العاشرة المتنوعة',
+      seoTitle: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-18.jpeg',
+      location: "",
+      date: '2025',
+      rating: 5,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } , {
+      id: '38',
+      title: "",
+      seoTitle: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-19.jpeg',
+      location: 'الرياض',
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } , {
+      id: '39',
+      title: "",
+      seoTitle: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-20.jpeg',
+      location: 'الرياض',
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } , {
+      id: '40',
+      title: "",
+      seoTitle: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-21.jpeg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
+    , {
+      id: '41',
+      title: "",
+      seoTitle: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-22.jpeg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } , {
+      id: '42',
+      title: "",
+      seoTitle: "",
+      category: 'contracting',
+      description: "",
+      image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-23.jpeg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
   ];
 
   const categories = [
