@@ -10,6 +10,7 @@ import About from './pages/About';
 import Services from './pages/Services';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
+import MapWidget from './components/map/MapWidget';
 
 import './index.css';
 
@@ -33,6 +34,8 @@ function App() {
              
             <Footer />
             <Chatbot />
+            <MapWidget />
+
           </div>
         </Router>
       </LanguageProvider>

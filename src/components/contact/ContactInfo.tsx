@@ -5,7 +5,7 @@ const contactInfo = [
   { icon: Phone, title: 'الهاتف', content: '+966 532438253', href: 'tel:+966532438253' },
   { icon: Mail, title: 'البريد الإلكتروني', content: 'Zjajkryt78@gmail.com', href: 'mailto:Zjajkryt78@gmail.com' },
   { icon: MapPin, title: 'العنوان', content: 'الرياض، المملكة العربية السعودية', href: '#' },
-  { icon: Clock, title: 'ساعات العمل', content: 'الأحد - الخميس: 8:00 ص - 6:00 م', href: '#' },
+  
 ];
 
 const ContactInfo = () => (

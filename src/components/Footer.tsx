@@ -131,10 +131,10 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                { path: '/', label: t('nav.home'), icon: "🏠" },
-                { path: '/about', label: t('nav.about'), icon: "ℹ️" },
-                { path: '/services', label: t('nav.services'), icon: "🔧" },
-                { path: '/projects', label: t('nav.projects'), icon: "📋" },
+                { path: '/', label: t('nav.home'), icon: "" },
+                { path: '/about', label: t('nav.about'), icon: "" },
+                { path: '/services', label: t('nav.services'), icon: "" },
+                { path: '/projects', label: t('nav.projects'), icon: "" },
               ].map((item) => (
                 <li key={item.path}>
                   <Link
@@ -158,11 +158,11 @@ const Footer: React.FC = () => {
             </h3>
             <ul className="space-y-3">
               {[
-                { text: "أعمال الزجاج المعماري", icon: "🏢" },
-                { text: "تركيب الألمنيوم", icon: "🔩" },
-                { text: "أعمال الاستانلس ستيل", icon: "✨" },
-                { text: "المقاولات العامة", icon: "🏗️" },
-                { text: "الصيانة والدعم", icon: "🛠️" }
+                { text: "أعمال الزجاج المعماري", icon: "" },
+                { text: "تركيب الألمنيوم", icon: "" },
+                { text: "أعمال الاستانلس ستيل", icon: "" },
+                { text: "المقاولات العامة", icon: "" },
+                { text: "الصيانة والدعم", icon: "" }
               ].map((service, index) => (
                 <li key={index} className="group flex items-center space-x-3 rtl:space-x-reverse text-gray-300 hover:text-white transition-all duration-300 p-2 rounded-lg hover:bg-white/5">
                   <span className="text-sm">{service.icon}</span>
