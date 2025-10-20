@@ -587,6 +587,252 @@ const Projects: React.FC = () => {
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
     } 
+    , {
+      id: '43',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0002.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
+     , {
+      id: '44',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0003.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '45',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0004.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '46',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0005.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '47',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0006.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '48',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0007.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '49',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0008.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '50',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0009.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '51',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0010.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '52',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0011.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '53',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0012.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '54',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0013.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '55',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0014.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '56',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0015.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '57',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0016.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
+     , {
+      id: '58',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0017.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
+     , {
+      id: '59',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0018.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '60',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0019.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '61',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0020.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '62',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0021.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '63',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0022.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    }  , {
+      id: '64',
+      title: "",
+      seoTitle: "",
+      category:  'aluminum',
+      description: "",
+      image: '/images/IMG-20251020-WA0023.jpg',
+      location:"",
+      date: '2025',
+      rating: 4,
+      keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
+    } 
   ];
 
   const categories = [
