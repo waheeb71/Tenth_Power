@@ -21,7 +21,7 @@ export const ProjectSEOHead: React.FC<{
 }> = ({ 
   seo, 
   companyName = 'القوة العاشرة',
-  siteName = 'القوة العاشرة للمقاولات والزجاج والألمنيوم'
+  siteName = 'القوة العاشرة للزجاج والألمنيوم'
 }) => {
   const fullTitle = `${seo.title} | ${companyName}`;
   const fullUrl = seo.url || 'https://stunning-bubblegum-f108c3.netlify.app';
@@ -76,7 +76,7 @@ export const ProjectSEOHead: React.FC<{
           "about": {
             "@type": "Organization",
             "name": companyName,
-            "description": "شركة رائدة في أعمال الزجاج والألمنيوم والمقاولات",
+            "description": "شركة رائدة في أعمال الزجاج والألمنيوم ",
             "url": "https://stunning-bubblegum-f108c3.netlify.app"
           },
           "keywords": seo.keywords.join(', '),
@@ -119,10 +119,10 @@ export const generateProjectSchema = (project: {
     },
     "creator": {
       "@type": "Organization",
-      "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
+      "name": "القوة العاشرة للزجاج والألمنيوم",
       "url": "https://stunning-bubblegum-f108c3.netlify.app",
       "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png",
-      "description": "شركة رائدة في أعمال الزجاج والألمنيوم والمقاولات في المملكة العربية السعودية"
+      "description": "شركة رائدة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية"
     },
     "locationCreated": {
       "@type": "Place",
@@ -222,12 +222,12 @@ export const PageSchema: React.FC<{
     "inLanguage": "ar",
     "isPartOf": {
       "@type": "WebSite",
-      "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
+      "name": "القوة العاشرة للزجاج والألمنيوم",
       "url": "https://stunning-bubblegum-f108c3.netlify.app"
     },
     "publisher": {
       "@type": "Organization",
-      "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
+      "name": "القوة العاشرة للزجاج والألمنيوم",
       "url": "https://stunning-bubblegum-f108c3.netlify.app",
       "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png"
     },
@@ -285,7 +285,7 @@ export const generateKeywords = (
       `شركة الومنيوم ${location}`,
       `الومنيوم ${location}`
     );
-  } else if (category === 'contracting') {
+  } else if (category ===  'aluminum') {
     baseKeywords.push(
       `مقاولات ${company}`,
       `${company} مقاولات`,

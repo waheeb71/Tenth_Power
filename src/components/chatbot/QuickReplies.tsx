@@ -7,7 +7,6 @@ interface Props {
 
 const QuickReplies: React.FC<Props> = ({ onSend }) => {
   const { language } = useLanguage();
-
   const quickReplies = language === 'ar'
     ? [
         { label: 'عرض الخدمات', message: 'ما الخدمات التي تقدمونها؟' },

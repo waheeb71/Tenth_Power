@@ -132,7 +132,7 @@ export const ProjectGallery: React.FC<ProjectGalleryProps> = ({
           "@context": "https://schema.org",
           "@type": "ImageGallery",
           "name": `معرض مشاريع ${companyName}`,
-          "description": `مجموعة من أفضل مشاريع ${companyName} في أعمال الزجاج والألمنيوم والمقاولات`,
+          "description": `مجموعة من أفضل مشاريع ${companyName} في أعمال الزجاج والألمنيوم `,
           "publisher": {
             "@type": "Organization",
             "name": companyName,

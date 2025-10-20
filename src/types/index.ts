@@ -4,7 +4,7 @@ export interface Project {
   titleEn: string;
   description: string;
   descriptionEn: string;
-  category: 'glass' | 'aluminum' | 'contracting';
+  category: 'glass' | 'aluminum' |  'aluminum';
   images: string[];
   location: string;
   locationEn: string;

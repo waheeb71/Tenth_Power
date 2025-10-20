@@ -110,7 +110,7 @@ const translations = {
     'projects.filter.all': 'All Projects',
     'projects.filter.glass': 'Glass',
     'projects.filter.aluminum': 'Aluminum',
-    'projects.filter.contracting': 'Contracting',
+    'projects.filter.contracting':  'aluminum',
     
     // Contact
     'contact.title': 'Contact Us',

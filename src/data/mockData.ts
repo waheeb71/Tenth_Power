@@ -53,7 +53,7 @@ export const mockProjects: Project[] = [
     titleEn: 'King Fahd Specialist Hospital',
     description: 'إنجاز مشروع توسعة المستشفى مع جميع التشطيبات والمرافق الطبية المتخصصة وأنظمة التكييف المتقدمة',
     descriptionEn: 'Completion of hospital expansion project with all finishes and specialized medical facilities and advanced air conditioning systems',
-    category: 'contracting',
+    category:  'aluminum',
     images: [
       'https://images.pexels.com/photos/1216544/pexels-photo-1216544.jpeg',
       'https://images.pexels.com/photos/3862365/pexels-photo-3862365.jpeg'
@@ -148,7 +148,7 @@ export const mockMessages: ContactMessage[] = [
     name: 'عبدالله خالد المطيري',
     email: 'abdullah.almutairi@example.com',
     phone: '+966512345678',
-    service: 'contracting',
+    service:  'aluminum',
     message: 'نخطط لبناء مجمع سكني يتكون من 4 مباني، كل مبنى 6 طوابق. نحتاج إلى مقاول عام للمشروع كاملاً. هل لديكم خبرة في المشاريع السكنية الكبيرة؟',
     read: false,
     replied: false,
@@ -190,7 +190,7 @@ export const serviceCategories = [
     order: 2
   },
   {
-    id: 'contracting',
+    id:  'aluminum',
     nameAr: 'المقاولات العامة',
     nameEn: 'General Contracting',
     descriptionAr: 'إدارة وتنفيذ المشاريع الإنشائية من التخطيط حتى التسليم النهائي',

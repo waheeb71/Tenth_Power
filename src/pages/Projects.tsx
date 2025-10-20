@@ -10,7 +10,7 @@ import { Helmet } from 'react-helmet-async';
 interface Project {
   id: string;
   title: string;
-  category: 'glass' | 'aluminum' | 'contracting';
+  category: 'glass' | 'aluminum' |  'aluminum';
   description: string;
   image: string;
   location: string;
@@ -54,9 +54,9 @@ const ProjectSchema: React.FC<{ project: Project }> = ({ project }) => {
     "name": project.seoTitle,
     "creator": {
       "@type": "Organization",
-      "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
+      "name": "القوة العاشرة للزجاج والألمنيوم",
       "url": "https://stunning-bubblegum-f108c3.netlify.app",
-      "description": "شركة رائدة في أعمال الزجاج والألمنيوم والمقاولات في المملكة العربية السعودية"
+      "description": "شركة رائدة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية"
     },
     "image": {
       "@type": "ImageObject",
@@ -117,7 +117,7 @@ const Projects: React.FC = () => {
       id: '3',
       title: 'مقاولات عامة القوة العاشرة',
       seoTitle: 'مقاولات عامة القوة العاشرة - مشاريع الدمام 2023',
-      category: 'contracting',
+      category:  'aluminum',
       description: 'مشاريع مقاولات عامة احترافية من شركة القوة العاشرة في الدمام - تنفيذ مشاريع البناء والتشييد بأعلى معايير الجودة والسلامة',
       image: '/images/al-quwwa-al-ashira-contracting-dammam-2023.jpeg',
       location: 'الدمام',
@@ -153,7 +153,7 @@ const Projects: React.FC = () => {
       id: '6',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-residential-makkah-2022.jpeg',
       location: 'مكة المكرمة',
@@ -333,7 +333,7 @@ const Projects: React.FC = () => {
       id: '21',
       title: "",
       seoTitle:"",
-      category: 'contracting',
+      category:  'aluminum',
       description:"",
       image: '/images/al-quwwa-al-ashira-modern-construction-riyadh-2025-1.jpg',
       location: 'الرياض',
@@ -345,7 +345,7 @@ const Projects: React.FC = () => {
       id: '22',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-luxury-development-riyadh-2025-2.jpg',
       location: 'الرياض',
@@ -357,7 +357,7 @@ const Projects: React.FC = () => {
       id: '23',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-commercial-center-jeddah-2025-3.jpg',
       location: 'جدة',
@@ -381,7 +381,7 @@ const Projects: React.FC = () => {
       id: '25',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-infrastructure-riyadh-2025-5.jpg',
       location: 'الرياض',
@@ -393,7 +393,7 @@ const Projects: React.FC = () => {
       id: '26',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description:"",
       image: '/images/al-quwwa-al-ashira-green-building-riyadh-2025-6.jpg',
       location: 'الرياض',
@@ -405,7 +405,7 @@ const Projects: React.FC = () => {
       id: '27',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description:"",
       image: '/images/al-quwwa-al-ashira-residential-complex-riyadh-2025-7.jpg',
       location: 'الرياض',
@@ -417,7 +417,7 @@ const Projects: React.FC = () => {
       id: '28',
       title: 'مشاريع إدارية متكاملة القوة العاشرة',
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-office-buildings-riyadh-2025-8.jpg',
       location: 'الرياض',
@@ -429,7 +429,7 @@ const Projects: React.FC = () => {
       id: '29',
       title: 'مرافق ترفيهية متطورة القوة العاشرة',
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-entertainment-facilities-riyadh-2025-9.jpg',
       location: 'الرياض',
@@ -441,7 +441,7 @@ const Projects: React.FC = () => {
       id: '30',
       title: 'مشاريع تعليمية رائدة القوة العاشرة',
       seoTitle:"",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-educational-projects-riyadh-2025-10.jpg',
       location: 'الرياض',
@@ -453,7 +453,7 @@ const Projects: React.FC = () => {
       id: '31',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description:"",
       image: '/images/al-quwwa-al-ashira-healthcare-facilities-riyadh-2025-11.jpg',
       location: 'الرياض',
@@ -465,7 +465,7 @@ const Projects: React.FC = () => {
       id: '32',
       title: 'مشاريع متنوعة شاملة القوة العاشرة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-13.jpg',
       location: 'الرياض',
@@ -476,7 +476,7 @@ const Projects: React.FC = () => {
       id: '33',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-14.jpeg',
       location: 'الرياض',
@@ -488,7 +488,7 @@ const Projects: React.FC = () => {
       id: '34',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-15.jpeg',
       location: 'الرياض',
@@ -500,7 +500,7 @@ const Projects: React.FC = () => {
       id: '35',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-16.jpeg',
       location: 'الرياض',
@@ -511,7 +511,7 @@ const Projects: React.FC = () => {
       id: '36',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-17.jpeg',
       location: 'الرياض',
@@ -523,7 +523,7 @@ const Projects: React.FC = () => {
       id: '37',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-18.jpeg',
       location: "",
@@ -534,7 +534,7 @@ const Projects: React.FC = () => {
       id: '38',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-19.jpeg',
       location: 'الرياض',
@@ -545,7 +545,7 @@ const Projects: React.FC = () => {
       id: '39',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-20.jpeg',
       location: 'الرياض',
@@ -556,7 +556,7 @@ const Projects: React.FC = () => {
       id: '40',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-21.jpeg',
       location:"",
@@ -568,7 +568,7 @@ const Projects: React.FC = () => {
       id: '41',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-22.jpeg',
       location:"",
@@ -579,7 +579,7 @@ const Projects: React.FC = () => {
       id: '42',
       title: "",
       seoTitle: "",
-      category: 'contracting',
+      category:  'aluminum',
       description: "",
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-23.jpeg',
       location:"",
@@ -593,7 +593,7 @@ const Projects: React.FC = () => {
     { key: 'all', label: t('projects.filter.all') },
     { key: 'glass', label: t('projects.filter.glass') },
     { key: 'aluminum', label: t('projects.filter.aluminum') },
-    { key: 'contracting', label: t('projects.filter.contracting') }
+   
   ];
 
   const filteredProjects = selectedCategory === 'all' 
@@ -604,12 +604,12 @@ const Projects: React.FC = () => {
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات",
-    "description": "اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات في المملكة العربية السعودية",
+    "name": "مشاريع القوة العاشرة للزجاج والألمنيوم ",
+    "description": "اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية",
     "url": "https://stunning-bubblegum-f108c3.netlify.app/projects",
     "publisher": {
       "@type": "Organization",
-      "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
+      "name": "القوة العاشرة للزجاج والألمنيوم",
       "url": "https://stunning-bubblegum-f108c3.netlify.app",
       "logo": "https://stunning-bubblegum-f108c3.netlify.app/logo.png",
       "sameAs": [
@@ -626,23 +626,23 @@ const Projects: React.FC = () => {
     <div className="min-h-screen bg-white">
       {/* SEO Head */}
       <Helmet>
-        <title>مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات | أعمال زجاج واجهات الرياض جدة الدمام</title>
-        <meta name="description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات في الرياض وجدة والدمام. زجاج القوة العاشرة - واجهات زجاجية - الومنيوم عالي الجودة - مقاولات احترافية" />
+        <title>مشاريع القوة العاشرة للزجاج والألمنيوم  | أعمال زجاج واجهات الرياض جدة الدمام</title>
+        <meta name="description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم  في الرياض وجدة والدمام. زجاج القوة العاشرة - واجهات زجاجية - الومنيوم عالي الجودة - مقاولات احترافية" />
         <meta name="keywords" content="القوة العاشرة, زجاج القوة العاشرة, الومنيوم القوة العاشرة, مقاولات القوة العاشرة, شركة زجاج الرياض, شركة الومنيوم جدة, واجهات زجاجية, زجاج سكريت, نوافذ الومنيوم, أبواب الومنيوم, مقاولات عامة, بناء وتشييد, زجاج واجهات, زجاج ديكوري, زجاج أمان, أعمال الومنيوم, مشاريع القوة العاشرة" />
         
         {/* Open Graph Tags */}
-        <meta property="og:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات" />
-        <meta property="og:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات في المملكة العربية السعودية" />
+        <meta property="og:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم " />
+        <meta property="og:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://stunning-bubblegum-f108c3.netlify.app/projects" />
         <meta property="og:image" content="https://stunning-bubblegum-f108c3.netlify.app/images/al-quwwa-al-ashira-projects-overview.jpg" />
         <meta property="og:locale" content="ar_SA" />
-        <meta property="og:site_name" content="القوة العاشرة للمقاولات والزجاج والألمنيوم" />
+        <meta property="og:site_name" content="القوة العاشرة للزجاج والألمنيوم" />
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم والمقاولات" />
-        <meta name="twitter:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم والمقاولات" />
+        <meta name="twitter:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم " />
+        <meta name="twitter:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم " />
         <meta name="twitter:image" content="https://stunning-bubblegum-f108c3.netlify.app/images/al-quwwa-al-ashira-projects-overview.jpg" />
         
         {/* Additional SEO Tags */}
@@ -674,7 +674,7 @@ const Projects: React.FC = () => {
           {t('projects.title')} - القوة العاشرة
         </h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          اكتشفوا مجموعة من أفضل مشاريع القوة العاشرة المنجزة بنجاح والتي تعكس خبرتنا وإتقاننا في أعمال الزجاج والألمنيوم والمقاولات
+          اكتشفوا مجموعة من أفضل مشاريع القوة العاشرة المنجزة بنجاح والتي تعكس خبرتنا وإتقاننا في أعمال الزجاج والألمنيوم 
         </p>
         
         {/* إضافة نص مخفي للـ SEO */}
@@ -816,7 +816,7 @@ const Projects: React.FC = () => {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8" itemScope itemType="http://schema.org/Organization">
             {[
               { number: '500+', label: 'مشروع منجز بنجاح', description: 'مشاريع زجاج والومنيوم ومقاولات' },
-              { number: '15+', label: 'سنة خبرة متخصصة', description: 'في أعمال الزجاج والألمنيوم والمقاولات' },
+              { number: '15+', label: 'سنة خبرة متخصصة', description: 'في أعمال الزجاج والألمنيوم ' },
               { number: '98%', label: 'رضا العملاء', description: 'معدل رضا عالي من عملاء القوة العاشرة' },
               { number: '1M+', label: 'متر مربع منفذ', description: 'مساحة إجمالية للمشاريع المنجزة' }
             ].map((stat, index) => (
@@ -865,9 +865,9 @@ const Projects: React.FC = () => {
         {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "LocalBusiness",
-          "name": "القوة العاشرة للمقاولات والزجاج والألمنيوم",
+          "name": "القوة العاشرة للزجاج والألمنيوم",
           "alternateName": ["زجاج القوة العاشرة", "الومنيوم القوة العاشرة", "مقاولات القوة العاشرة"],
-          "description": "شركة رائدة في أعمال الزجاج والألمنيوم والمقاولات العامة في المملكة العربية السعودية",
+          "description": "شركة رائدة في أعمال الزجاج والألمنيوم  العامة في المملكة العربية السعودية",
           "url": "https://stunning-bubblegum-f108c3.netlify.app",
           "telephone": "+966123456789",
           "address": {
