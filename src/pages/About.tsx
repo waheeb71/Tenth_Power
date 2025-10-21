@@ -2,6 +2,7 @@ import React from 'react';
 import { Award, Users, Target, Eye } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
 import SectionWithBackground from "../components/SectionWithBackground"; 
+
 const About: React.FC = () => {
   const { t } = useLanguage();
 
@@ -9,51 +10,48 @@ const About: React.FC = () => {
     {
       icon: Award,
       title: 'الجودة والإتقان',
-      description: 'نسعى دائماً لتقديم أعلى مستوى من الجودة في جميع مشاريعنا'
+      description: 'نحرص على تنفيذ وتركيب أعمال الزجاج والألمنيوم بأعلى معايير الجودة'
     },
     {
       icon: Users,
-      title: 'فريق محترف',
-      description: 'نضم أفضل المهندسين والفنيين المتخصصين في مجالاتهم'
+      title: 'فريق متخصص',
+      description: 'فريقنا يضم فنيين ومهندسين ذوي خبرة عالية في تركيب الزجاج والألمنيوم'
     },
     {
       icon: Target,
       title: 'الدقة في التنفيذ',
-      description: 'نلتزم بالمواصفات والمعايير العالمية في جميع أعمالنا'
+      description: 'نلتزم بالدقة في القياسات والتركيب لضمان أفضل النتائج'
     },
     {
       icon: Eye,
-      title: 'الرؤية المستقبلية',
-      description: 'نواكب أحدث التقنيات والتطورات في مجال البناء والتشييد'
+      title: 'رؤية مستقبلية',
+      description: 'نسعى لتقديم حلول تركيب حديثة ومبتكرة تواكب التطور المعماري'
     }
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-    <SectionWithBackground section="about" t={t}>
-     <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t("about.title")}</h1>
+      <SectionWithBackground section="about" t={t}>
+        <h1 className="text-4xl lg:text-5xl font-bold mb-6">{t("about.title")}</h1>
         <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
           {t("about.description")}
         </p>
-</SectionWithBackground>
-
+      </SectionWithBackground>
 
       {/* Company Story */}
       <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl font-bold text-gray-900">قصتنا</h2>
+              <h2 className="text-3xl font-bold text-gray-900">من نحن</h2>
               <p className="text-lg text-gray-600 leading-relaxed">
-                تأسست شركة القوة العاشرة للمقاولات العامة برؤية واضحة: أن نكون الشركة الرائدة في مجال 
-                المقاولات العامة وأعمال الزجاج والألمنيوم في المملكة العربية السعودية. منذ تأسيسنا، 
-                نسعى لتحقيق التميز في كل مشروع نتولاه.
+                تأسست شركة <strong>القوة العاشرة</strong> لتكون من الشركات المتميزة في 
+                مجال <strong>تركيب الزجاج والألمنيوم والاستانلس ستيل</strong> في المملكة العربية السعودية.
               </p>
               <p className="text-lg text-gray-600 leading-relaxed">
-                بفضل فريقنا المحترف وخبرتنا الواسعة، نجحنا في تنفيذ مئات المشاريع المتنوعة، من 
-                المباني السكنية إلى المجمعات التجارية والمشاريع الحكومية. نفخر بثقة عملائنا ورضاهم 
-                التام عن خدماتنا.
+                نقدم خدماتنا في تنفيذ وتركيب الواجهات الزجاجية، الأبواب والنوافذ الألمنيوم، القواطع الداخلية، 
+                والدرابزينات المعدنية، بأعلى درجات الجودة والدقة في التنفيذ.
               </p>
             </div>
             <div className="relative">
@@ -76,7 +74,7 @@ const About: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">قيمنا ومبادئنا</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              نؤمن بأن النجاح يأتي من الالتزام بالقيم والمبادئ السليمة
+              نؤمن أن النجاح يتحقق من خلال الالتزام بالجودة، الدقة، والاحترافية في التركيب.
             </p>
           </div>
 
@@ -104,60 +102,23 @@ const About: React.FC = () => {
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-2xl">
               <Eye className="w-12 h-12 text-amber-600 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">رؤيتنا</h3>
-           <p className="text-lg text-gray-700 leading-relaxed">
-أن نكون الشركة الرائدة والمفضلة في مجال أعمال الزجاج والألمنيوم والاستانلس ستيل، 
-وأن نساهم في تطوير بيئة عمرانية حديثة من خلال تقديم منتجات وخدمات عالية الجودة 
-تفوق توقعات عملائنا.
-</p>
-
+              <p className="text-lg text-gray-700 leading-relaxed">
+                أن نكون الشركة الرائدة والمفضلة في مجال تركيب الزجاج والألمنيوم والاستانلس ستيل، 
+                من خلال تقديم حلول تنفيذية دقيقة وجودة تفوق التوقعات.
+              </p>
             </div>
 
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-2xl">
               <Target className="w-12 h-12 text-blue-600 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">رسالتنا</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
-                تقديم خدمات متميزة في مجال المقاولات والزجاج والألمنيوم بأعلى معايير الجودة والاحترافية، 
-                مع الالتزام بالمواعيد والميزانيات المحددة، وبناء علاقات طويلة الأمد مع عملائنا.
+                تقديم خدمات تركيب الزجاج والألمنيوم بأعلى معايير الجودة والالتزام بالمواعيد، 
+                مع الحرص على تحقيق رضا العملاء وبناء علاقات مستدامة قائمة على الثقة.
               </p>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Team Section 
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">فريق العمل</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              نفخر بفريقنا المتخصص من المهندسين والفنيين ذوي الخبرة الواسعة
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-                 { name: 'م.w', position: 'المدير التنفيذي', image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg' }, 
-              { name: 'م. a', position: 'مدير المشاريع', image: 'https://images.pexels.com/photos/3756679/pexels-photo-3756679.jpeg' }, 
-              { name: 'م. b', position: 'مدير التطوير', image: 'https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg' } 
-            ].map((member, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
-              >
-                <img
-                  src={member.image}
-                  alt={member.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6 text-center">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{member.name}</h3>
-                  <p className="text-amber-600 font-medium">{member.position}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>*/}
     </div>
   );
 };

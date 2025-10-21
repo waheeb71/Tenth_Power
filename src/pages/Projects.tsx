@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, Star, Filter } from 'lucide-react';
+import { Calendar, MapPin, Star, X, ChevronLeft, ChevronRight } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
-import SectionWithBackground from "../components/SectionWithBackground"; 
-
-
-
+import SectionWithBackground from "../components/SectionWithBackground";
 import { Helmet } from 'react-helmet-async';
 
 interface Project {
   id: string;
   title: string;
-  category: 'glass' | 'aluminum' |  'aluminum';
+  category: 'glass' | 'aluminum' | 'aluminum';
   description: string;
   image: string;
   location: string;
@@ -26,14 +23,14 @@ const OptimizedImage: React.FC<{
   alt: string;
   title: string;
   className?: string;
-}> = ({ src, alt, title, className = '' }) => {
+  onClick?: () => void;
+}> = ({ src, alt, title, className = '', onClick }) => {
   return (
     <picture>
-   
       <source srcSet={src} type="image/webp" />
       <source srcSet={src} type="image/jpeg" />
-       <source srcSet={src} type="image/jpg" />
-        <source srcSet={src} type="image/png" />
+      <source srcSet={src} type="image/jpg" />
+      <source srcSet={src} type="image/png" />
       <img
         src={src || '/images/logo.jpg'}
         alt={alt}
@@ -41,8 +38,115 @@ const OptimizedImage: React.FC<{
         loading="lazy"
         decoding="async"
         className={className}
+        onClick={onClick}
+        style={{ cursor: onClick ? 'pointer' : 'default' }}
       />
     </picture>
+  );
+};
+
+// مكون Lightbox لعرض الصور بحجم كامل
+const ImageLightbox: React.FC<{
+  images: Project[];
+  currentIndex: number;
+  onClose: () => void;
+  onNext: () => void;
+  onPrev: () => void;
+}> = ({ images, currentIndex, onClose, onNext, onPrev }) => {
+  const currentProject = images[currentIndex];
+
+  return (
+    <div className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4 animate-fadeIn">
+      {/* زر الإغلاق */}
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 z-50 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+        aria-label="إغلاق"
+      >
+        <X className="w-6 h-6" />
+      </button>
+
+      {/* زر السابق */}
+      <button
+        onClick={onPrev}
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm hidden md:block"
+        aria-label="الصورة السابقة"
+      >
+        <ChevronLeft className="w-8 h-8" />
+      </button>
+
+      {/* زر التالي */}
+      <button
+        onClick={onNext}
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-50 bg-white/10 hover:bg-white/20 text-white p-3 rounded-full transition-all duration-300 backdrop-blur-sm hidden md:block"
+        aria-label="الصورة التالية"
+      >
+        <ChevronRight className="w-8 h-8" />
+      </button>
+
+      {/* محتوى الصورة */}
+      <div className="w-full max-w-7xl mx-auto flex flex-col items-center">
+        {/* الصورة */}
+        <div className="relative w-full max-h-[70vh] flex items-center justify-center mb-6">
+          <img
+            src={currentProject.image}
+            alt={currentProject.title}
+            className="max-w-full max-h-[70vh] object-contain rounded-lg shadow-2xl"
+          />
+        </div>
+
+        {/* معلومات المشروع */}
+        <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 max-w-2xl w-full text-white">
+          <h3 className="text-2xl font-bold mb-3">{currentProject.title}</h3>
+          {currentProject.description && (
+            <p className="text-white/90 mb-4 leading-relaxed">{currentProject.description}</p>
+          )}
+          <div className="flex flex-wrap gap-4 text-sm">
+            {currentProject.location && (
+              <div className="flex items-center gap-2">
+                <MapPin className="w-4 h-4 text-amber-400" />
+                <span>{currentProject.location}</span>
+              </div>
+            )}
+            <div className="flex items-center gap-2">
+              <Calendar className="w-4 h-4 text-amber-400" />
+              <span>{currentProject.date}</span>
+            </div>
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`w-4 h-4 ${
+                    i < currentProject.rating ? 'text-yellow-400 fill-current' : 'text-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* عداد الصور */}
+        <div className="mt-4 text-white/70 text-sm">
+          {currentIndex + 1} / {images.length}
+        </div>
+
+        {/* أزرار التنقل للموبايل */}
+        <div className="flex gap-4 mt-4 md:hidden">
+          <button
+            onClick={onPrev}
+            className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          >
+            السابق
+          </button>
+          <button
+            onClick={onNext}
+            className="bg-white/10 hover:bg-white/20 text-white px-6 py-3 rounded-full transition-all duration-300 backdrop-blur-sm"
+          >
+            التالي
+          </button>
+        </div>
+      </div>
+    </div>
   );
 };
 
@@ -56,7 +160,7 @@ const ProjectSchema: React.FC<{ project: Project }> = ({ project }) => {
       "@type": "Organization",
       "name": "القوة العاشرة للزجاج والألمنيوم",
       "url": "https://stunning-bubblegum-f108c3.netlify.app",
-      "description": "شركة رائدة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية"
+      "description": "شركة رائدة في أعمال الزجاج والألمنيوم في المملكة العربية السعودية"
     },
     "image": {
       "@type": "ImageObject",
@@ -86,9 +190,10 @@ const ProjectSchema: React.FC<{ project: Project }> = ({ project }) => {
 const Projects: React.FC = () => {
   const { t } = useLanguage();
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const projects: Project[] = [
-    
     {
       id: '1',
       title: 'اعمال زجاج سكريت واجهات القوة العاشرة',
@@ -117,7 +222,7 @@ const Projects: React.FC = () => {
       id: '3',
       title: 'مقاولات عامة القوة العاشرة',
       seoTitle: 'مقاولات عامة القوة العاشرة - مشاريع الدمام 2023',
-      category:  'aluminum',
+      category: 'aluminum',
       description: 'مشاريع مقاولات عامة احترافية من شركة القوة العاشرة في الدمام - تنفيذ مشاريع البناء والتشييد بأعلى معايير الجودة والسلامة',
       image: '/images/al-quwwa-al-ashira-contracting-dammam-2023.jpeg',
       location: 'الدمام',
@@ -151,10 +256,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '6',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'مجمع سكني متكامل',
+      seoTitle: 'مجمع سكني متكامل - مكة المكرمة',
+      category: 'aluminum',
+      description: 'تطوير مجمع سكني متكامل بوحدات سكنية عصرية',
       image: '/images/al-quwwa-al-ashira-residential-makkah-2022.jpeg',
       location: 'مكة المكرمة',
       date: '2022',
@@ -166,7 +271,7 @@ const Projects: React.FC = () => {
       title: 'مشروع زجاج خاص القوة العاشرة',
       seoTitle: 'مشروع زجاج خاص القوة العاشرة - حلول زجاجية مخصصة الرياض 2025',
       category: 'glass',
-      description: ' تصميم وتنفيذ مشاريع زجاج فريدة تلبي احتياجات العملاء الخاصة في الرياض',
+      description: 'تصميم وتنفيذ مشاريع زجاج فريدة تلبي احتياجات العملاء الخاصة في الرياض',
       image: '/images/al-quwwa-al-ashira-custom-glass-riyadh-2025-1.jpeg',
       location: 'الرياض',
       date: '2025',
@@ -211,10 +316,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '11',
-      title: "",
-      seoTitle: "",
+      title: 'زجاج أمان وحماية',
+      seoTitle: 'زجاج أمان وحماية - الرياض',
       category: 'glass',
-      description: "",
+      description: 'حلول زجاج أمان متقدمة للحماية والسلامة',
       image: '/images/al-quwwa-al-ashira-security-glass-riyadh-2025-5.jpg',
       location: 'الرياض',
       date: '2025',
@@ -223,10 +328,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '12',
-      title: "",
-      seoTitle:"",
+      title: 'واجهات تجارية زجاجية',
+      seoTitle: 'واجهات تجارية زجاجية - الرياض',
       category: 'glass',
-      description:"",
+      description: 'تصميم واجهات زجاجية للمحلات والمباني التجارية',
       image: '/images/al-quwwa-al-ashira-commercial-glass-riyadh-2025-6.jpg',
       location: 'الرياض',
       date: '2025',
@@ -235,8 +340,8 @@ const Projects: React.FC = () => {
     },
     {
       id: '13',
-      title: "",
-      seoTitle: "",
+      title: 'أبواب زجاجية أوتوماتيكية',
+      seoTitle: 'أبواب زجاجية أوتوماتيكية - الرياض',
       category: 'glass',
       description: 'تركيب أبواب زجاجية أوتوماتيكية من شركة القوة العاشرة - أبواب ذكية تعمل بأحدث التقنيات لسهولة الدخول والخروج في الرياض',
       image: '/images/al-quwwa-al-ashira-automatic-doors-riyadh-2025-7.jpg',
@@ -247,10 +352,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '14',
-      title: "",
-      seoTitle: "",
+      title: 'نوافذ عازلة للصوت والحرارة',
+      seoTitle: 'نوافذ عازلة - الرياض',
       category: 'glass',
-      description: "",
+      description: 'نوافذ عازلة للصوت والحرارة بتقنيات متقدمة',
       image: '/images/al-quwwa-al-ashira-insulated-windows-riyadh-2025-8.jpg',
       location: 'الرياض',
       date: '2025',
@@ -259,10 +364,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '15',
-      title: "",
-      seoTitle: "",
+      title: 'زجاج ديكوري فني',
+      seoTitle: 'زجاج ديكوري فني - الرياض',
       category: 'glass',
-      description: "",
+      description: 'تصاميم زجاج ديكورية فنية راقية',
       image: '/images/al-quwwa-al-ashira-decorative-glass-riyadh-2025-9.jpg',
       location: 'الرياض',
       date: '2025',
@@ -271,10 +376,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '16',
-      title: "",
-      seoTitle: "",
+      title: 'أسقف زجاجية شفافة',
+      seoTitle: 'أسقف زجاجية - الرياض',
       category: 'glass',
-      description: "",
+      description: 'أسقف زجاجية تسمح بدخول الضوء الطبيعي',
       image: '/images/al-quwwa-al-ashira-glass-ceiling-riyadh-2025-10.jpg',
       location: 'الرياض',
       date: '2025',
@@ -283,10 +388,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '17',
-      title:"",
-      seoTitle: "",
+      title: 'حوائط وفواصل زجاجية',
+      seoTitle: 'فواصل زجاجية - الرياض',
       category: 'glass',
-      description: "",
+      description: 'فواصل وحوائط زجاجية عصرية',
       image: '/images/al-quwwa-al-ashira-glass-partitions-riyadh-2025-11.jpg',
       location: 'الرياض',
       date: '2025',
@@ -295,10 +400,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '18',
-      title: "",
-      seoTitle: "",
+      title: 'زجاج مقاوم للعوامل الجوية',
+      seoTitle: 'زجاج مقاوم للطقس - الرياض',
       category: 'glass',
-      description:"",
+      description: 'زجاج متين مقاوم للعوامل الجوية القاسية',
       image: '/images/al-quwwa-al-ashira-weather-resistant-glass-riyadh-2025-12.jpg',
       location: 'الرياض',
       date: '2025',
@@ -310,7 +415,7 @@ const Projects: React.FC = () => {
       title: 'مشروع زجاج متكامل القوة العاشرة',
       seoTitle: 'مشروع زجاج متكامل القوة العاشرة - حلول شاملة الرياض 2025',
       category: 'glass',
-      description: "",
+      description: 'مشروع زجاج شامل بحلول متكاملة',
       image: '/images/al-quwwa-al-ashira-integrated-glass-riyadh-2025-13.jpg',
       location: 'الرياض',
       date: '2025',
@@ -319,10 +424,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '20',
-      title: "",
-      seoTitle: "",
+      title: 'تطبيقات زجاج مبتكرة',
+      seoTitle: 'زجاج مبتكر - الرياض',
       category: 'glass',
-      description: "",
+      description: 'تطبيقات زجاج مبتكرة وحديثة',
       image: '/images/al-quwwa-al-ashira-innovative-glass-riyadh-2025-14.jpg',
       location: 'الرياض',
       date: '2025',
@@ -331,10 +436,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '21',
-      title: "",
-      seoTitle:"",
-      category:  'aluminum',
-      description:"",
+      title: 'مشروع إنشائي حديث',
+      seoTitle: 'مشروع إنشائي - الرياض',
+      category: 'aluminum',
+      description: 'مشروع إنشائي بتقنيات بناء حديثة',
       image: '/images/al-quwwa-al-ashira-modern-construction-riyadh-2025-1.jpg',
       location: 'الرياض',
       date: '2025',
@@ -343,10 +448,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '22',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'تطوير عقاري فاخر',
+      seoTitle: 'تطوير عقاري فاخر - الرياض',
+      category: 'aluminum',
+      description: 'مشاريع تطوير عقاري راقية',
       image: '/images/al-quwwa-al-ashira-luxury-development-riyadh-2025-2.jpg',
       location: 'الرياض',
       date: '2025',
@@ -355,10 +460,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '23',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'مركز تجاري متكامل',
+      seoTitle: 'مركز تجاري - جدة',
+      category: 'aluminum',
+      description: 'مجمع تجاري حديث بمرافق متكاملة',
       image: '/images/al-quwwa-al-ashira-commercial-center-jeddah-2025-3.jpg',
       location: 'جدة',
       date: '2025',
@@ -379,10 +484,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '25',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'مشاريع بنية تحتية',
+      seoTitle: 'بنية تحتية - الرياض',
+      category: 'aluminum',
+      description: 'تطوير بنية تحتية أساسية',
       image: '/images/al-quwwa-al-ashira-infrastructure-riyadh-2025-5.jpg',
       location: 'الرياض',
       date: '2025',
@@ -391,10 +496,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '26',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description:"",
+      title: 'مباني خضراء مستدامة',
+      seoTitle: 'مباني خضراء - الرياض',
+      category: 'aluminum',
+      description: 'بناء مستدام صديق للبيئة',
       image: '/images/al-quwwa-al-ashira-green-building-riyadh-2025-6.jpg',
       location: 'الرياض',
       date: '2025',
@@ -403,10 +508,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '27',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description:"",
+      title: 'مجمعات سكنية عصرية',
+      seoTitle: 'مجمعات سكنية - الرياض',
+      category: 'aluminum',
+      description: 'مجمعات سكنية بتصاميم حديثة',
       image: '/images/al-quwwa-al-ashira-residential-complex-riyadh-2025-7.jpg',
       location: 'الرياض',
       date: '2025',
@@ -416,9 +521,9 @@ const Projects: React.FC = () => {
     {
       id: '28',
       title: 'مشاريع إدارية متكاملة القوة العاشرة',
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      seoTitle: 'مباني إدارية - الرياض',
+      category: 'aluminum',
+      description: 'مباني مكاتب حديثة',
       image: '/images/al-quwwa-al-ashira-office-buildings-riyadh-2025-8.jpg',
       location: 'الرياض',
       date: '2025',
@@ -428,9 +533,9 @@ const Projects: React.FC = () => {
     {
       id: '29',
       title: 'مرافق ترفيهية متطورة القوة العاشرة',
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      seoTitle: 'مرافق ترفيهية - الرياض',
+      category: 'aluminum',
+      description: 'مراكز ترفيهية ورياضية',
       image: '/images/al-quwwa-al-ashira-entertainment-facilities-riyadh-2025-9.jpg',
       location: 'الرياض',
       date: '2025',
@@ -440,9 +545,9 @@ const Projects: React.FC = () => {
     {
       id: '30',
       title: 'مشاريع تعليمية رائدة القوة العاشرة',
-      seoTitle:"",
-      category:  'aluminum',
-      description: "",
+      seoTitle: 'مشاريع تعليمية - الرياض',
+      category: 'aluminum',
+      description: 'مدارس ومرافق تعليمية حديثة',
       image: '/images/al-quwwa-al-ashira-educational-projects-riyadh-2025-10.jpg',
       location: 'الرياض',
       date: '2025',
@@ -451,10 +556,10 @@ const Projects: React.FC = () => {
     },
     {
       id: '31',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description:"",
+      title: 'مرافق صحية متطورة',
+      seoTitle: 'مرافق صحية - الرياض',
+      category: 'aluminum',
+      description: 'مستشفيات ومراكز طبية حديثة',
       image: '/images/al-quwwa-al-ashira-healthcare-facilities-riyadh-2025-11.jpg',
       location: 'الرياض',
       date: '2025',
@@ -465,393 +570,449 @@ const Projects: React.FC = () => {
       id: '32',
       title: 'مشاريع متنوعة شاملة القوة العاشرة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category:  'aluminum',
-      description: "",
+      category: 'aluminum',
+      description: 'مجموعة متنوعة من المشاريع المتكاملة',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-13.jpg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } , {
+    },
+    {
       id: '33',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category:  'aluminum',
-      description: "",
+      category: 'aluminum',
+      description: 'مشاريع متنوعة بجودة عالية',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-14.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-    , {
+    },
+    {
       id: '34',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category:  'aluminum',
-      description: "",
+      category: 'aluminum',
+      description: 'تنفيذ مشاريع بمعايير عالية',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-15.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-    ,{
+    },
+    {
       id: '35',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category:  'aluminum',
-      description: "",
+      category: 'aluminum',
+      description: 'خدمات شاملة ومتكاملة',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-16.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } , {
+    },
+    {
       id: '36',
       title: 'مشاريع القوة العاشرة المتنوعة',
       seoTitle: 'مشاريع متنوعة شاملة القوة العاشرة - حلول متكاملة الرياض 2025',
-      category:  'aluminum',
-      description: "",
+      category: 'aluminum',
+      description: 'أعمال احترافية متميزة',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-17.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-    , {
+    },
+    {
       id: '37',
       title: 'مشاريع القوة العاشرة المتنوعة',
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      seoTitle: 'مشاريع متنوعة - الرياض',
+      category: 'aluminum',
+      description: 'تنفيذ بأعلى معايير الجودة',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-18.jpeg',
-      location: "",
+      location: 'الرياض',
       date: '2025',
       rating: 5,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } , {
+    },
+    {
       id: '38',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متميزة',
+      seoTitle: 'أعمال متميزة - الرياض',
+      category: 'aluminum',
+      description: 'مشاريع بجودة استثنائية',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-19.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } , {
+    },
+    {
       id: '39',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'مشاريع احترافية',
+      seoTitle: 'مشاريع احترافية - الرياض',
+      category: 'aluminum',
+      description: 'تنفيذ احترافي متقن',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-20.jpeg',
       location: 'الرياض',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } , {
+    },
+    {
       id: '40',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال مميزة',
+      seoTitle: 'أعمال مميزة',
+      category: 'aluminum',
+      description: 'مشاريع فريدة ومميزة',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-21.jpeg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-    , {
+    },
+    {
       id: '41',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'تنفيذ متقن',
+      seoTitle: 'تنفيذ متقن',
+      category: 'aluminum',
+      description: 'دقة في التنفيذ والإنجاز',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-22.jpeg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } , {
+    },
+    {
       id: '42',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'جودة عالية',
+      seoTitle: 'جودة عالية',
+      category: 'aluminum',
+      description: 'التزام بأعلى معايير الجودة',
       image: '/images/al-quwwa-al-ashira-diverse-projects-riyadh-2025-23.jpeg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-    , {
+    },
+    {
       id: '43',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 1',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنوع في الخدمات والتنفيذ',
       image: '/images/IMG-20251020-WA0002.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-     , {
+    },
+    {
       id: '44',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 2',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'خدمات متكاملة',
       image: '/images/IMG-20251020-WA0003.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '45',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 3',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ شامل ومتكامل',
       image: '/images/IMG-20251020-WA0004.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '46',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 4',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'مشاريع بجودة عالية',
       image: '/images/IMG-20251020-WA0005.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '47',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 5',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'إنجازات متميزة',
       image: '/images/IMG-20251020-WA0006.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '48',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 6',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ احترافي',
       image: '/images/IMG-20251020-WA0007.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '49',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 7',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'مشاريع متكاملة',
       image: '/images/IMG-20251020-WA0008.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '50',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 8',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'خدمات شاملة',
       image: '/images/IMG-20251020-WA0009.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '51',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 9',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ بجودة عالية',
       image: '/images/IMG-20251020-WA0010.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '52',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 10',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'إنجازات متميزة',
       image: '/images/IMG-20251020-WA0011.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '53',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 11',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'مشاريع احترافية',
       image: '/images/IMG-20251020-WA0012.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '54',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 12',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ متقن',
       image: '/images/IMG-20251020-WA0013.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '55',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 13',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'جودة استثنائية',
       image: '/images/IMG-20251020-WA0014.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '56',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 14',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'خدمات متميزة',
       image: '/images/IMG-20251020-WA0015.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '57',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 15',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ شامل',
       image: '/images/IMG-20251020-WA0016.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-     , {
+    },
+    {
       id: '58',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 16',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'مشاريع متطورة',
       image: '/images/IMG-20251020-WA0017.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
-     , {
+    },
+    {
       id: '59',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 17',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'إنجازات مميزة',
       image: '/images/IMG-20251020-WA0018.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '60',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 18',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ بمعايير عالية',
       image: '/images/IMG-20251020-WA0019.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '61',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 19',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'خدمات احترافية',
       image: '/images/IMG-20251020-WA0020.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '62',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 20',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'مشاريع بجودة فائقة',
       image: '/images/IMG-20251020-WA0021.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '63',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 21',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'تنفيذ دقيق ومتقن',
       image: '/images/IMG-20251020-WA0022.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    }  , {
+    },
+    {
       id: '64',
-      title: "",
-      seoTitle: "",
-      category:  'aluminum',
-      description: "",
+      title: 'أعمال متنوعة 22',
+      seoTitle: 'أعمال متنوعة',
+      category: 'aluminum',
+      description: 'إنجازات شاملة',
       image: '/images/IMG-20251020-WA0023.jpg',
-      location:"",
+      location: '',
       date: '2025',
       rating: 4,
       keywords: ['القوة العاشرة', 'مشاريع متنوعة', 'حلول شاملة', 'مشاريع متكاملة', 'القوة العاشرة متنوع', 'خدمات شاملة']
-    } 
+    }
   ];
 
   const categories = [
     { key: 'all', label: t('projects.filter.all') },
     { key: 'glass', label: t('projects.filter.glass') },
-    { key: 'aluminum', label: t('projects.filter.aluminum') },
-   
+    { key: 'aluminum', label: t('projects.filter.aluminum') }
   ];
 
   const filteredProjects = selectedCategory === 'all' 
     ? projects 
     : projects.filter(project => project.category === selectedCategory);
 
+  // دوال للتحكم في Lightbox
+  const openLightbox = (index: number) => {
+    setCurrentImageIndex(index);
+    setLightboxOpen(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setLightboxOpen(false);
+    document.body.style.overflow = 'auto';
+  };
+
+  const nextImage = () => {
+    setCurrentImageIndex((prev) => (prev + 1) % filteredProjects.length);
+  };
+
+  const prevImage = () => {
+    setCurrentImageIndex((prev) => (prev - 1 + filteredProjects.length) % filteredProjects.length);
+  };
+
+  // التحكم بلوحة المفاتيح
+  React.useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (!lightboxOpen) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') prevImage();
+      if (e.key === 'ArrowLeft') nextImage();
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxOpen]);
+
   // إنشاء Schema للصفحة الرئيسية
   const pageSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "مشاريع القوة العاشرة للزجاج والألمنيوم ",
-    "description": "اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية",
+    "name": "مشاريع القوة العاشرة للزجاج والألمنيوم",
+    "description": "اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم في المملكة العربية السعودية",
     "url": "https://stunning-bubblegum-f108c3.netlify.app/projects",
     "publisher": {
       "@type": "Organization",
@@ -869,16 +1030,16 @@ const Projects: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-white to-amber-50/30">
       {/* SEO Head */}
       <Helmet>
-        <title>مشاريع القوة العاشرة للزجاج والألمنيوم  | أعمال زجاج واجهات الرياض جدة الدمام</title>
-        <meta name="description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم  في الرياض وجدة والدمام. زجاج القوة العاشرة - واجهات زجاجية - الومنيوم عالي الجودة - مقاولات احترافية" />
+        <title>مشاريع القوة العاشرة للزجاج والألمنيوم | أعمال زجاج واجهات الرياض جدة الدمام</title>
+        <meta name="description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم في الرياض وجدة والدمام. زجاج القوة العاشرة - واجهات زجاجية - الومنيوم عالي الجودة - مقاولات احترافية" />
         <meta name="keywords" content="القوة العاشرة, زجاج القوة العاشرة, الومنيوم القوة العاشرة, مقاولات القوة العاشرة, شركة زجاج الرياض, شركة الومنيوم جدة, واجهات زجاجية, زجاج سكريت, نوافذ الومنيوم, أبواب الومنيوم, مقاولات عامة, بناء وتشييد, زجاج واجهات, زجاج ديكوري, زجاج أمان, أعمال الومنيوم, مشاريع القوة العاشرة" />
         
         {/* Open Graph Tags */}
-        <meta property="og:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم " />
-        <meta property="og:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم  في المملكة العربية السعودية" />
+        <meta property="og:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم" />
+        <meta property="og:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم في المملكة العربية السعودية" />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://stunning-bubblegum-f108c3.netlify.app/projects" />
         <meta property="og:image" content="https://stunning-bubblegum-f108c3.netlify.app/images/al-quwwa-al-ashira-projects-overview.jpg" />
@@ -887,8 +1048,8 @@ const Projects: React.FC = () => {
         
         {/* Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم " />
-        <meta name="twitter:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم " />
+        <meta name="twitter:title" content="مشاريع القوة العاشرة للزجاج والألمنيوم" />
+        <meta name="twitter:description" content="اكتشف مشاريع شركة القوة العاشرة المتميزة في أعمال الزجاج والألمنيوم" />
         <meta name="twitter:image" content="https://stunning-bubblegum-f108c3.netlify.app/images/al-quwwa-al-ashira-projects-overview.jpg" />
         
         {/* Additional SEO Tags */}
@@ -914,40 +1075,41 @@ const Projects: React.FC = () => {
         <ProjectSchema key={project.id} project={project} />
       ))}
 
+      {/* Lightbox */}
+      {lightboxOpen && (
+        <ImageLightbox
+          images={filteredProjects}
+          currentIndex={currentImageIndex}
+          onClose={closeLightbox}
+          onNext={nextImage}
+          onPrev={prevImage}
+        />
+      )}
+
       {/* Hero Section */}
       <SectionWithBackground section="projects" t={t}>
-        <h1 className="text-4xl lg:text-5xl font-bold mb-6">
-          {t('projects.title')} - القوة العاشرة
-        </h1>
-        <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-          اكتشفوا مجموعة من أفضل مشاريع القوة العاشرة المنجزة بنجاح والتي تعكس خبرتنا وإتقاننا في أعمال الزجاج والألمنيوم 
-        </p>
-        
-        {/* إضافة نص مخفي للـ SEO */}
-        <div className="hidden">
-          <h2>زجاج القوة العاشرة - أعمال زجاج واجهات احترافية</h2>
-          <p>شركة القوة العاشرة رائدة في أعمال الزجاج والواجهات الزجاجية في الرياض وجدة والدمام. نقدم حلول زجاج سكريت، زجاج أمان، زجاج ديكوري، وجميع أنواع الزجاج المعماري.</p>
-          
-          <h3>الومنيوم القوة العاشرة - نوافذ وأبواب عالية الجودة</h3>
-          <p>تخصصنا في تصنيع وتركيب نوافذ وأبواب الألمنيوم، درابزين استانلس ستيل، وجميع أعمال المعادن بأعلى معايير الجودة.</p>
-          
-          <h4>مقاولات القوة العاشرة - مشاريع بناء وتشييد متميزة</h4>
-          <p>نفذنا أكثر من 500 مشروع في مجال المقاولات العامة، البنية التحتية، المجمعات السكنية، والمباني التجارية في جميع أنحاء المملكة.</p>
+        <div className="animate-fadeIn">
+          <h1 className="text-4xl lg:text-6xl font-bold mb-6 text-white drop-shadow-2xl">
+            {t('projects.title')} - القوة العاشرة
+          </h1>
+          <p className="text-xl lg:text-2xl text-gray-100 max-w-3xl mx-auto leading-relaxed drop-shadow-lg">
+            اكتشفوا مجموعة من أفضل مشاريع القوة العاشرة المنجزة بنجاح والتي تعكس خبرتنا وإتقاننا في أعمال الزجاج والألمنيوم
+          </p>
         </div>
       </SectionWithBackground>
 
       {/* Filter Section */}
-      <section className="py-8 bg-gray-50 border-b">
+      <section className="py-8 bg-white/80 backdrop-blur-sm border-b border-amber-100 sticky top-0 z-40 shadow-md">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3">
             {categories.map((category) => (
               <button
                 key={category.key}
                 onClick={() => setSelectedCategory(category.key)}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all duration-300 ${
+                className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
                   selectedCategory === category.key
-                    ? 'bg-amber-500 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-gray-100 shadow-md'
+                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-xl scale-105'
+                    : 'bg-white text-gray-700 hover:bg-amber-50 shadow-md hover:shadow-lg'
                 }`}
                 aria-label={`فلترة المشاريع حسب ${category.label}`}
               >
@@ -959,75 +1121,95 @@ const Projects: React.FC = () => {
       </section>
 
       {/* Projects Grid */}
-      <section className="py-20">
+      <section className="py-16 lg:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {filteredProjects.map((project) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 lg:gap-8">
+            {filteredProjects.map((project, index) => (
               <article
                 key={project.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
+                className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 animate-fadeIn"
+                style={{ animationDelay: `${index * 0.05}s` }}
                 itemScope
                 itemType="http://schema.org/CreativeWork"
               >
-                <div className="relative overflow-hidden">
+                <div className="relative overflow-hidden h-64 bg-gradient-to-br from-gray-100 to-gray-200">
                   <OptimizedImage
                     src={project.image}
-                    alt={`${project.seoTitle} - صور أعمال ${project.category === 'glass' ? 'زجاج' : project.category === 'aluminum' ? 'الومنيوم' : 'مقاولات'} القوة العاشرة في ${project.location}`}
-                    title={`مشروع ${project.title} - القوة العاشرة ${project.location} ${project.date}`}
-                    className="w-full h-64 object-cover transition-transform duration-300 hover:scale-110"
+                    alt={`${project.title || project.seoTitle} - ${project.category === 'glass' ? 'زجاج' : 'الومنيوم'} القوة العاشرة`}
+                    title={`${project.title || project.seoTitle} - القوة العاشرة ${project.location} ${project.date}`}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer"
+                    onClick={() => openLightbox(index)}
                   />
                   
+                  {/* Overlay عند الـ Hover */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      <div className="text-4xl mb-2">🔍</div>
+                      <p className="font-bold text-lg">اضغط للعرض</p>
+                    </div>
+                  </div>
+                  
                   {/* Logo/Watermark */}
-                  <div className="absolute bottom-3 right-3 bg-black/80 text-white px-3 py-1 text-sm rounded-lg font-bold">
+                  <div className="absolute bottom-3 right-3 bg-gradient-to-r from-amber-600 to-amber-500 text-white px-4 py-2 text-xs rounded-lg font-bold shadow-lg">
                     القوة العاشرة
                   </div>
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 right-4 bg-amber-500/95 text-white px-3 py-1 rounded-full shadow-lg">
-                    <span className="text-sm font-semibold">
-                      {project.category === 'glass' ? 'زجاج القوة العاشرة' : 
-                       project.category === 'aluminum' ? 'ألمنيوم القوة العاشرة' : 'مقاولات القوة العاشرة'}
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-full shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                    <span className="text-sm font-bold">
+                      {project.category === 'glass' ? ' زجاج' : ' ألمنيوم'}
                     </span>
                   </div>
                 </div>
 
-                <div className="p-6">
-                  <header>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3" itemProp="name">
-                      {project.title}
+                <div className="p-5">
+                  <header className="mb-3">
+                    <h3 className="text-lg font-bold text-gray-900 line-clamp-2 group-hover:text-amber-600 transition-colors duration-300" itemProp="name">
+                      {project.title || project.seoTitle || 'مشروع القوة العاشرة'}
                     </h3>
                   </header>
                   
-                  <p className="text-gray-600 mb-4 leading-relaxed" itemProp="description">
-                    {project.description}
-                  </p>
+                  {project.description && (
+                    <p className="text-gray-600 text-sm mb-4 leading-relaxed line-clamp-2" itemProp="description">
+                      {project.description}
+                    </p>
+                  )}
 
                   <div className="space-y-2 mb-4">
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-500">
-                      <MapPin className="w-4 h-4 text-amber-500" />
-                      <span itemProp="locationCreated">{project.location}</span>
-                    </div>
-                    <div className="flex items-center space-x-2 rtl:space-x-reverse text-sm text-gray-500">
-                      <Calendar className="w-4 h-4 text-amber-500" />
+                    {project.location && (
+                      <div className="flex items-center gap-2 text-sm text-gray-500">
+                        <MapPin className="w-4 h-4 text-amber-500 flex-shrink-0" />
+                        <span itemProp="locationCreated" className="truncate">{project.location}</span>
+                      </div>
+                    )}
+                    <div className="flex items-center gap-2 text-sm text-gray-500">
+                      <Calendar className="w-4 h-4 text-amber-500 flex-shrink-0" />
                       <time itemProp="dateCreated">{project.date}</time>
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between">
-                    <div className="flex items-center space-x-1 rtl:space-x-reverse" itemProp="aggregateRating" itemScope itemType="http://schema.org/AggregateRating">
+                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                    <div className="flex items-center gap-1" itemProp="aggregateRating" itemScope itemType="http://schema.org/AggregateRating">
                       <span className="sr-only" itemProp="ratingValue">{project.rating}</span>
                       <span className="sr-only" itemProp="bestRating">5</span>
                       <span className="sr-only" itemProp="reviewCount">1</span>
                       {[...Array(5)].map((_, i) => (
                         <Star
                           key={i}
-                          className={`w-4 h-4 ${
-                            i < project.rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+                          className={`w-4 h-4 transition-all duration-300 ${
+                            i < project.rating ? 'text-yellow-400 fill-current scale-110' : 'text-gray-300'
                           }`}
                           aria-label={i < project.rating ? 'نجمة مملوءة' : 'نجمة فارغة'}
                         />
                       ))}
                     </div>
+                    
+                    <button
+                      onClick={() => openLightbox(index)}
+                      className="text-amber-600 hover:text-amber-700 font-semibold text-sm transition-colors duration-300 group-hover:underline"
+                    >
+                      عرض المشروع ←
+                    </button>
                   </div>
 
                   {/* Hidden SEO Content */}
@@ -1047,61 +1229,79 @@ const Projects: React.FC = () => {
         </div>
       </section>
 
-      {/* Stats Section */}
-      <section className="py-20 bg-gradient-to-r from-amber-500 to-amber-600 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <header className="text-center mb-12">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">
+      {/* Stats Section 
+      <section className="py-20 bg-gradient-to-r from-amber-500 via-amber-600 to-amber-500 text-white relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjEiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-20"></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <header className="text-center mb-16 animate-fadeIn">
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6 drop-shadow-lg">
               إنجازات القوة العاشرة في أرقام
             </h2>
-            <p className="text-lg opacity-90">
+            <div className="w-24 h-1 bg-white mx-auto mb-6 rounded-full"></div>
+            <p className="text-xl opacity-95 max-w-2xl mx-auto">
               أكثر من 15 عام من الخبرة في خدمة عملائنا الكرام
             </p>
           </header>
 
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8" itemScope itemType="http://schema.org/Organization">
             {[
-              { number: '500+', label: 'مشروع منجز بنجاح', description: 'مشاريع زجاج والومنيوم ومقاولات' },
-              { number: '15+', label: 'سنة خبرة متخصصة', description: 'في أعمال الزجاج والألمنيوم ' },
-              { number: '98%', label: 'رضا العملاء', description: 'معدل رضا عالي من عملاء القوة العاشرة' },
-              { number: '1M+', label: 'متر مربع منفذ', description: 'مساحة إجمالية للمشاريع المنجزة' }
+              { number: '500+', label: 'مشروع منجز بنجاح', description: 'مشاريع زجاج والومنيوم ومقاولات', icon: '🏆' },
+              { number: '15+', label: 'سنة خبرة متخصصة', description: 'في أعمال الزجاج والألمنيوم', icon: '⭐' },
+              { number: '98%', label: 'رضا العملاء', description: 'معدل رضا عالي من عملاء القوة العاشرة', icon: '😊' },
+              { number: '1M+', label: 'متر مربع منفذ', description: 'مساحة إجمالية للمشاريع المنجزة', icon: '📐' }
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold mb-2" itemProp="numberOfEmployees">
+              <div 
+                key={index} 
+                className="text-center group hover:transform hover:scale-110 transition-all duration-300 animate-fadeIn bg-white/10 backdrop-blur-sm rounded-2xl p-6 hover:bg-white/20"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="text-5xl mb-4 group-hover:scale-125 transition-transform duration-300">
+                  {stat.icon}
+                </div>
+                <div className="text-5xl lg:text-6xl font-bold mb-3 drop-shadow-lg group-hover:text-yellow-200 transition-colors duration-300" itemProp="numberOfEmployees">
                   {stat.number}
                 </div>
-                <div className="text-lg font-semibold mb-1">{stat.label}</div>
-                <div className="text-sm opacity-80">{stat.description}</div>
+                <div className="text-xl font-bold mb-2">{stat.label}</div>
+                <div className="text-sm opacity-90 leading-relaxed">{stat.description}</div>
               </div>
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* CTA Section */}
-      <section className="py-16 bg-gray-100">
-        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">
-            هل لديك مشروع تريد تنفيذه مع القوة العاشرة؟
-          </h2>
-          <p className="text-lg text-gray-600 mb-8">
-            تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك
-          </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="tel:+966123456789"
-              className="bg-amber-500 hover:bg-amber-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
-              aria-label="اتصل بنا هاتفياً"
-            >
-              اتصل بنا الآن
-            </a>
-            <a
-              href="https://wa.me/966123456789"
-              className="bg-green-500 hover:bg-green-600 text-white px-8 py-3 rounded-lg font-semibold transition-colors duration-200"
-              aria-label="تواصل معنا عبر واتساب"
-            >
-              واتساب
-            </a>
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-amber-50 relative overflow-hidden">
+        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGNpcmNsZSBjeD0iMzAiIGN5PSIzMCIgcj0iMiIgZmlsbD0iI2Y1OTUxNSIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-50"></div>
+        
+        <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="bg-white rounded-3xl shadow-2xl p-8 lg:p-12 animate-fadeIn">
+            <div className="text-6xl mb-6">📞</div>
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              هل لديك مشروع تريد تنفيذه مع القوة العاشرة؟
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-600 mx-auto mb-6 rounded-full"></div>
+            <p className="text-xl text-gray-600 mb-10 leading-relaxed">
+              تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <a
+                href="tel:+966123456789"
+                className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center gap-3"
+                aria-label="اتصل بنا هاتفياً"
+              >
+                <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">📞</span>
+                اتصل بنا الآن
+              </a>
+              <a
+                href="https://wa.me/966123456789"
+                className="group bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center gap-3"
+                aria-label="تواصل معنا عبر واتساب"
+              >
+                <span className="text-2xl group-hover:scale-125 transition-transform duration-300">💬</span>
+                واتساب
+              </a>
+            </div>
           </div>
         </div>
       </section>
@@ -1113,7 +1313,7 @@ const Projects: React.FC = () => {
           "@type": "LocalBusiness",
           "name": "القوة العاشرة للزجاج والألمنيوم",
           "alternateName": ["زجاج القوة العاشرة", "الومنيوم القوة العاشرة", "مقاولات القوة العاشرة"],
-          "description": "شركة رائدة في أعمال الزجاج والألمنيوم  العامة في المملكة العربية السعودية",
+          "description": "شركة رائدة في أعمال الزجاج والألمنيوم العامة في المملكة العربية السعودية",
           "url": "https://stunning-bubblegum-f108c3.netlify.app",
           "telephone": "+966123456789",
           "address": {
@@ -1156,6 +1356,42 @@ const Projects: React.FC = () => {
           }
         })}
       </script>
+
+      {/* CSS للأنيميشن */}
+      <style>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        .animate-fadeIn {
+          animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .line-clamp-2 {
+          display: -webkit-box;
+          -webkit-line-clamp: 2;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+        }
+
+        /* تحسين الأداء */
+        * {
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* تحسين الانتقالات */
+        button, a {
+          -webkit-tap-highlight-color: transparent;
+        }
+      `}</style>
     </div>
   );
 };
