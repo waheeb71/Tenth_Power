@@ -1139,13 +1139,14 @@ const Projects: React.FC = () => {
                     title={`${project.title || project.seoTitle} - القوة العاشرة ${project.location} ${project.date}`}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 cursor-pointer"
                     onClick={() => openLightbox(index)}
+                    
                   />
                   
                   {/* Overlay عند الـ Hover */}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="text-white text-center transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
                       <div className="text-4xl mb-2">🔍</div>
-                      <p className="font-bold text-lg">اضغط للعرض</p>
+                     {/* <p className="font-bold text-lg">اضغط للعرض</p>*/}
                     </div>
                   </div>
                   
