@@ -66,7 +66,7 @@ const Services: React.FC = () => {
               >
                 <div className={`space-y-6 ${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                   <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center">
+                    <div className="w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-600 rounded-xl flex items-center justify-center">
                       <service.icon className="w-8 h-8 text-white" />
                     </div>
                     <h2 className="text-3xl font-bold text-gray-900">{service.title}</h2>
@@ -120,7 +120,7 @@ const Services: React.FC = () => {
               <div key={index} className="relative">
                 <div className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
                   <div className="text-center">
-                    <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <div className="w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-600 rounded-full flex items-center justify-center mx-auto mb-4">
                       <span className="text-white font-bold text-xl">{step.step}</span>
                     </div>
                     <h3 className="text-xl font-semibold text-gray-900 mb-3">{step.title}</h3>
@@ -129,7 +129,7 @@ const Services: React.FC = () => {
                 </div>
                 
                 {index < process.length - 1 && (
-                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-amber-500 to-amber-600"></div>
+                  <div className="hidden lg:block absolute top-8 -right-4 w-8 h-0.5 bg-gradient-to-r from-sky-400 to-sky-600"></div>
                 )}
               </div>
             ))}
@@ -138,7 +138,7 @@ const Services: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-amber-500 to-amber-600 text-white">
+      <section className="py-20 bg-gradient-to-r from-sky-400 to-sky-600 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl lg:text-4xl font-bold mb-6">
             مستعدون لبدء مشروعكم؟
@@ -148,7 +148,7 @@ const Services: React.FC = () => {
           </p>
           <a
             href="/contact"
-            className="inline-block bg-white text-amber-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
+            className="inline-block bg-white text-sky-600 px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300"
           >
             احصل على عرض سعر مجاني
           </a>

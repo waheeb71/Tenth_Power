@@ -62,7 +62,7 @@ const About: React.FC = () => {
                   className="w-full h-96 object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl opacity-20"></div>
+              <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-gradient-to-br from-sky-400 to-sky-600 rounded-xl opacity-20"></div>
             </div>
           </div>
         </div>
@@ -84,7 +84,7 @@ const About: React.FC = () => {
                 key={index}
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3 text-center">{value.title}</h3>
@@ -100,7 +100,7 @@ const About: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <div className="bg-gradient-to-br from-amber-50 to-amber-100 p-8 rounded-2xl">
-              <Eye className="w-12 h-12 text-amber-600 mb-4" />
+              <Eye className="w-12 h-12 text-sky-600 mb-4" />
               <h3 className="text-2xl font-bold text-gray-900 mb-4">رؤيتنا</h3>
               <p className="text-lg text-gray-700 leading-relaxed">
                 أن نكون الشركة الرائدة والمفضلة في مجال تركيب الزجاج والألمنيوم والاستانلس ستيل، 

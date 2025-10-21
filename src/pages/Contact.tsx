@@ -40,7 +40,7 @@ const ContactPage: React.FC = () => {
                 <ContactInfo />
               </div>
               <ContactMap />
-              <WorkingHours />
+            {/*  <WorkingHours />*/}
             </div>
           </div>
         </div>

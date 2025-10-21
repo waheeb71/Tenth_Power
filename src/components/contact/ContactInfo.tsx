@@ -15,13 +15,13 @@ const ContactInfo = () => (
         key={index}
         className="flex items-start space-x-4 rtl:space-x-reverse p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors"
       >
-        <div className="w-12 h-12 bg-gradient-to-br from-amber-500 to-amber-600 rounded-lg flex items-center justify-center flex-shrink-0">
+        <div className="w-12 h-12 bg-gradient-to-br from-sky-400 to-sky-600 rounded-lg flex items-center justify-center flex-shrink-0">
           <info.icon className="w-6 h-6 text-white" />
         </div>
         <div>
           <h3 className="font-semibold text-gray-900 mb-1">{info.title}</h3>
           {info.href !== '#' ? (
-            <a href={info.href} className="text-gray-600 hover:text-amber-600 transition-colors">
+            <a href={info.href} className="text-gray-600 hover:text-sky-600 transition-colors">
               {info.content}
             </a>
           ) : (

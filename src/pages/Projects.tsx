@@ -1108,7 +1108,7 @@ const Projects: React.FC = () => {
                 onClick={() => setSelectedCategory(category.key)}
                 className={`px-8 py-3 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 ${
                   selectedCategory === category.key
-                    ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-white shadow-xl scale-105'
+                    ? 'bg-gradient-to-r from-sky-400 to-sky-600 text-white shadow-xl scale-105'
                     : 'bg-white text-gray-700 hover:bg-amber-50 shadow-md hover:shadow-lg'
                 }`}
                 aria-label={`فلترة المشاريع حسب ${category.label}`}
@@ -1155,7 +1155,7 @@ const Projects: React.FC = () => {
                   </div>
                   
                   {/* Category Badge */}
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-amber-500 to-amber-600 text-white px-4 py-2 rounded-full shadow-xl transform group-hover:scale-110 transition-transform duration-300">
+                  <div className="absolute top-4 right-4 bg-gradient-to-r from-sky-400 to-sky-600 text-white px-4 py-2 rounded-full shadow-xl transform group-hover:scale-110 transition-transform duration-300">
                     <span className="text-sm font-bold">
                       {project.category === 'glass' ? ' زجاج' : ' ألمنيوم'}
                     </span>
@@ -1164,7 +1164,7 @@ const Projects: React.FC = () => {
 
                 <div className="p-5">
                   <header className="mb-3">
-                    <h3 className="text-lg font-bold text-gray-900 line-clamp-2 group-hover:text-amber-600 transition-colors duration-300" itemProp="name">
+                    <h3 className="text-lg font-bold text-gray-900 line-clamp-2 group-hover:text-sky-600 transition-colors duration-300" itemProp="name">
                       {project.title || project.seoTitle || 'مشروع القوة العاشرة'}
                     </h3>
                   </header>
@@ -1280,14 +1280,14 @@ const Projects: React.FC = () => {
             <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
               هل لديك مشروع تريد تنفيذه مع القوة العاشرة؟
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-500 to-amber-600 mx-auto mb-6 rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-sky-400 to-sky-600 mx-auto mb-6 rounded-full"></div>
             <p className="text-xl text-gray-600 mb-10 leading-relaxed">
               تواصل معنا اليوم للحصول على استشارة مجانية وعرض سعر مخصص لمشروعك
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
                 href="tel:+966123456789"
-                className="group bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center gap-3"
+                className="group bg-gradient-to-r from-sky-400 to-sky-600 hover:from-amber-600 hover:to-amber-700 text-white px-10 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl flex items-center gap-3"
                 aria-label="اتصل بنا هاتفياً"
               >
                 <span className="text-2xl group-hover:rotate-12 transition-transform duration-300">📞</span>

@@ -205,7 +205,7 @@ const ContactForm = () => {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="w-full bg-gradient-to-r from-amber-500 to-amber-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 rtl:space-x-reverse disabled:opacity-70"
+        className="w-full bg-gradient-to-r from-sky-400 to-sky-600 text-white py-4 px-6 rounded-lg font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center justify-center space-x-2 rtl:space-x-reverse disabled:opacity-70"
       >
         <Send className="w-5 h-5" />
         <span>{isSubmitting ? 'جاري الإرسال...' : 'أرسل الرسالة'}</span>

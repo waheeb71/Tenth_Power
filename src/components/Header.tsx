@@ -54,8 +54,8 @@ const Header: React.FC = () => {
                 to={item.href}
                 className={`px-4 py-3 rounded-xl text-sm font-medium transition-all duration-300 relative group ${
                   isActive(item.href)
-                    ? 'text-amber-600 bg-amber-50'
-                    : 'text-gray-700 hover:text-amber-600 hover:bg-gray-100'
+                    ? 'text-sky-600 bg-amber-50'
+                    : 'text-gray-700 hover:text-sky-600 hover:bg-gray-100'
                 }`}
               >
                 {item.name}
@@ -102,8 +102,8 @@ const Header: React.FC = () => {
                   onClick={() => setIsMenuOpen(false)}
                   className={`block px-3 py-2 rounded-lg text-base font-medium transition-all duration-200 ${
                     isActive(item.href)
-                      ? 'text-amber-600 bg-amber-50'
-                      : 'text-gray-700 hover:text-amber-600 hover:bg-gray-50'
+                      ? 'text-sky-600 bg-amber-50'
+                      : 'text-gray-700 hover:text-sky-600 hover:bg-gray-50'
                   }`}
                 >
                   {item.name}

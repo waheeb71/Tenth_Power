@@ -39,7 +39,7 @@ const Home: React.FC = () => {
     <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
       <Link
         to="/contact"
-        className="bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 rtl:space-x-reverse"
+        className="bg-gradient-to-r from-sky-400 to-sky-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 flex items-center space-x-2 rtl:space-x-reverse"
       >
         <span>{t("home.hero.cta")}</span>
         <ArrowRight className="w-5 h-5" />
@@ -79,7 +79,7 @@ const Home: React.FC = () => {
                 key={index}
                 className="text-center p-6 rounded-xl bg-gray-50 hover:bg-white hover:shadow-xl transition-all duration-300 transform hover:scale-105"
               >
-                <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-amber-600 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-br from-sky-400 to-sky-600 rounded-xl flex items-center justify-center mx-auto mb-4">
                   <feature.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-2">{feature.title}</h3>
@@ -112,7 +112,7 @@ const Home: React.FC = () => {
                 <p className="text-gray-600 mb-4">{t('services.glass.description')}</p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200"
+                  className="inline-flex items-center text-sky-600 font-semibold hover:text-amber-700 transition-colors duration-200"
                 >
                   <span>اقرأ المزيد</span>
                   <ArrowRight className="w-4 h-4 mr-2" />
@@ -132,7 +132,7 @@ const Home: React.FC = () => {
                 <p className="text-gray-600 mb-4">{t('services.aluminum.description')}</p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200"
+                  className="inline-flex items-center text-sky-600 font-semibold hover:text-amber-700 transition-colors duration-200"
                 >
                   <span>اقرأ المزيد</span>
                   <ArrowRight className="w-4 h-4 mr-2" />
@@ -142,13 +142,13 @@ const Home: React.FC = () => {
 
             {/* General Contracting 
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:scale-105">
-              <div className="h-48 bg-gradient-to-br from-amber-500 to-amber-600"></div>
+              <div className="h-48 bg-gradient-to-br from-sky-400 to-sky-600"></div>
               <div className="p-6">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">{t('services.contracting.title')}</h3>
                 <p className="text-gray-600 mb-4">{t('services.contracting.description')}</p>
                 <Link
                   to="/services"
-                  className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200"
+                  className="inline-flex items-center text-sky-600 font-semibold hover:text-amber-700 transition-colors duration-200"
                 >
                   <span>اقرأ المزيد</span>
                   <ArrowRight className="w-4 h-4 mr-2" />
@@ -168,7 +168,7 @@ const Home: React.FC = () => {
     <p className="text-gray-600 mb-4">{t('services.stainless.description')}</p>
     <Link
       to="/services"
-      className="inline-flex items-center text-amber-600 font-semibold hover:text-amber-700 transition-colors duration-200"
+      className="inline-flex items-center text-sky-600 font-semibold hover:text-amber-700 transition-colors duration-200"
     >
       <span>اقرأ المزيد</span>
       <ArrowRight className="w-4 h-4 mr-2" />
@@ -192,7 +192,7 @@ const Home: React.FC = () => {
     </p>
     <Link
       to="/contact"
-      className="inline-flex items-center bg-gradient-to-r from-amber-500 to-amber-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 space-x-2 rtl:space-x-reverse"
+      className="inline-flex items-center bg-gradient-to-r from-sky-400 to-sky-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300 space-x-2 rtl:space-x-reverse"
     >
       <span>ابدأ مشروعك معنا</span>
       <ArrowRight className="w-5 h-5" />
