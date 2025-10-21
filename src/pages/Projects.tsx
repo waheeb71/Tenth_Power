@@ -1206,7 +1206,7 @@ const Projects: React.FC = () => {
                     
                     <button
                       onClick={() => openLightbox(index)}
-                      className="text-amber-600 hover:text-amber-700 font-semibold text-sm transition-colors duration-300 group-hover:underline"
+                      className="text-primary-600 hover:text-primary-700 font-semibold text-sm transition-colors duration-300 group-hover:underline"
                     >
                       عرض المشروع ←
                     </button>
