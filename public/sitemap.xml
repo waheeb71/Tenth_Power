@@ -10,15 +10,19 @@
   <!-- الصفحة الرئيسية -->
   <url>
     <loc>https://stunning-bubblegum-f108c3.netlify.app/</loc>
-  <lastmod>2025-09-02T19:37:31+00:00</lastmod>
+    <lastmod>2025-11-22T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://stunning-bubblegum-f108c3.netlify.app/logo.png</image:loc>
+      <image:caption>شعار القوة العاشرة للمقاولات العامة</image:caption>
+    </image:image>
   </url>
 
   <!-- صفحة About -->
   <url>
     <loc>https://stunning-bubblegum-f108c3.netlify.app/about</loc>
-    <lastmod>2025-09-02T19:37:31+00:00</lastmod>
+    <lastmod>2025-11-22T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -26,7 +30,7 @@
   <!-- صفحة الخدمات -->
   <url>
     <loc>https://stunning-bubblegum-f108c3.netlify.app/services</loc>
-    <lastmod>2025-09-02T19:37:31+00:00</lastmod>
+    <lastmod>2025-11-22T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -34,7 +38,7 @@
   <!-- صفحة المشاريع -->
   <url>
     <loc>https://stunning-bubblegum-f108c3.netlify.app/projects</loc>
-   <lastmod>2025-09-02T19:37:31+00:00</lastmod>
+    <lastmod>2025-11-22T12:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -42,22 +46,9 @@
   <!-- صفحة الاتصال -->
   <url>
     <loc>https://stunning-bubblegum-f108c3.netlify.app/contact</loc>
-    <lastmod>2025-09-02T19:37:31+00:00</lastmod>
+    <lastmod>2025-11-22T12:00:00+00:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
-  </url>
-
- 
-
-  <url>
-    <loc>https://stunning-bubblegum-f108c3.netlify.app/</loc>
-   <lastmod>2025-09-02T19:37:31+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-    <image:image>
-      <image:loc>https://stunning-bubblegum-f108c3.netlify.app/logo.png</image:loc>
-      <image:caption>Project 1 Overview</image:caption>
-    </image:image>
   </url>
 
 </urlset>

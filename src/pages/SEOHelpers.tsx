@@ -18,80 +18,80 @@ export const ProjectSEOHead: React.FC<{
   seo: SEOData;
   companyName?: string;
   siteName?: string;
-}> = ({ 
-  seo, 
+}> = ({
+  seo,
   companyName = 'القوة العاشرة',
   siteName = 'القوة العاشرة للزجاج والألمنيوم'
 }) => {
-  const fullTitle = `${seo.title} | ${companyName}`;
-  const fullUrl = seo.url || 'https://stunning-bubblegum-f108c3.netlify.app';
-  
-  return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={seo.description} />
-      <meta name="keywords" content={seo.keywords.join(', ')} />
-      
-      {/* Open Graph Tags */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={seo.description} />
-      <meta property="og:type" content="website" />
-      <meta property="og:url" content={fullUrl} />
-      <meta property="og:site_name" content={siteName} />
-      <meta property="og:locale" content="ar_SA" />
-      {seo.image && <meta property="og:image" content={seo.image} />}
-      {seo.image && <meta property="og:image:alt" content={seo.title} />}
-      
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={seo.description} />
-      {seo.image && <meta name="twitter:image" content={seo.image} />}
-      
-      {/* Additional SEO Tags */}
-      <meta name="robots" content="index, follow, max-image-preview:large" />
-      <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
-      <meta name="language" content="Arabic" />
-      <meta name="geo.region" content="SA" />
-      <meta name="geo.placename" content="Saudi Arabia" />
-      
-      {/* Canonical URL */}
-      <link rel="canonical" href={fullUrl} />
-      
-      {/* Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify({
-          "@context": "https://schema.org",
-          "@type": "WebPage",
-          "name": seo.title,
-          "description": seo.description,
-          "url": fullUrl,
-          "inLanguage": "ar",
-          "isPartOf": {
-            "@type": "WebSite",
-            "name": siteName,
-            "url": "https://stunning-bubblegum-f108c3.netlify.app"
-          },
-          "about": {
-            "@type": "Organization",
-            "name": companyName,
-            "description": "شركة رائدة في أعمال الزجاج والألمنيوم ",
-            "url": "https://stunning-bubblegum-f108c3.netlify.app"
-          },
-          "keywords": seo.keywords.join(', '),
-          ...(seo.image && {
-            "primaryImageOfPage": {
-              "@type": "ImageObject",
-              "url": seo.image,
-              "description": seo.title
-            }
-          })
-        })}
-      </script>
-    </Helmet>
-  );
-};
+    const fullTitle = `${seo.title} | ${companyName}`;
+    const fullUrl = seo.url || 'https://stunning-bubblegum-f108c3.netlify.app';
+
+    return (
+      <Helmet>
+        {/* Basic Meta Tags */}
+        <title>{fullTitle}</title>
+        <meta name="description" content={seo.description} />
+        <meta name="keywords" content={seo.keywords.join(', ')} />
+
+        {/* Open Graph Tags */}
+        <meta property="og:title" content={fullTitle} />
+        <meta property="og:description" content={seo.description} />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={fullUrl} />
+        <meta property="og:site_name" content={siteName} />
+        <meta property="og:locale" content="ar_SA" />
+        {seo.image && <meta property="og:image" content={seo.image} />}
+        {seo.image && <meta property="og:image:alt" content={seo.title} />}
+
+        {/* Twitter Card Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={fullTitle} />
+        <meta name="twitter:description" content={seo.description} />
+        {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+        {/* Additional SEO Tags */}
+        <meta name="robots" content="index, follow, max-image-preview:large" />
+        <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large" />
+        <meta name="language" content="Arabic" />
+        <meta name="geo.region" content="SA" />
+        <meta name="geo.placename" content="Saudi Arabia" />
+
+        {/* Canonical URL */}
+        <link rel="canonical" href={fullUrl} />
+
+        {/* Structured Data */}
+        <script type="application/ld+json">
+          {JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": seo.title,
+            "description": seo.description,
+            "url": fullUrl,
+            "inLanguage": "ar",
+            "isPartOf": {
+              "@type": "WebSite",
+              "name": siteName,
+              "url": "https://stunning-bubblegum-f108c3.netlify.app"
+            },
+            "about": {
+              "@type": "Organization",
+              "name": companyName,
+              "description": "شركة رائدة في أعمال الزجاج والألمنيوم ",
+              "url": "https://stunning-bubblegum-f108c3.netlify.app"
+            },
+            "keywords": seo.keywords.join(', '),
+            ...(seo.image && {
+              "primaryImageOfPage": {
+                "@type": "ImageObject",
+                "url": seo.image,
+                "description": seo.title
+              }
+            })
+          })}
+        </script>
+      </Helmet>
+    );
+  };
 
 // دالة لإنشاء Schema Markup للمشاريع
 export const generateProjectSchema = (project: {
@@ -132,8 +132,8 @@ export const generateProjectSchema = (project: {
     "dateCreated": project.date,
     "keywords": project.keywords.join(', '),
     "inLanguage": "ar",
-    "genre": project.category === 'glass' ? 'أعمال الزجاج' : 
-            project.category === 'aluminum' ? 'أعمال الألمنيوم' : 'مقاولات عامة',
+    "genre": project.category === 'glass' ? 'أعمال الزجاج' :
+      project.category === 'aluminum' ? 'أعمال الألمنيوم' : 'مقاولات عامة',
     "workExample": {
       "@type": "VisualArtwork",
       "name": project.title,
@@ -163,12 +163,12 @@ export const generateSEOFileName = (
     .replace(/[^\u0621-\u064A\u0660-\u0669a-zA-Z0-9\s]/g, '')
     .trim()
     .replace(/\s+/g, '-');
-  
+
   const cleanCompany = company
     .replace(/[^\u0621-\u064A\u0660-\u0669a-zA-Z0-9\s]/g, '')
     .trim()
     .replace(/\s+/g, '-');
-  
+
   const cleanLocation = location
     .replace(/[^\u0621-\u064A\u0660-\u0669a-zA-Z0-9\s]/g, '')
     .trim()
@@ -185,9 +185,9 @@ export const generateAltText = (
   date: string,
   category: string
 ): string => {
-  const categoryText = category === 'glass' ? 'زجاج' : 
-                      category === 'aluminum' ? 'الومنيوم' : 'مقاولات';
-  
+  const categoryText = category === 'glass' ? 'زجاج' :
+    category === 'aluminum' ? 'الومنيوم' : 'مقاولات';
+
   return `${projectTitle} - أعمال ${categoryText} ${company} في ${location} ${date}`;
 };
 
@@ -198,9 +198,9 @@ export const generateImageTitle = (
   location: string,
   category: string
 ): string => {
-  const categoryText = category === 'glass' ? 'زجاج' : 
-                      category === 'aluminum' ? 'الومنيوم' : 'مقاولات';
-  
+  const categoryText = category === 'glass' ? 'زجاج' :
+    category === 'aluminum' ? 'الومنيوم' : 'مقاولات';
+
   return `مشروع ${categoryText} ${company} - ${projectTitle} ${location}`;
 };
 
@@ -211,7 +211,7 @@ export const PageSchema: React.FC<{
   description: string;
   url: string;
   keywords: string[];
-  breadcrumbs?: Array<{name: string; url: string}>;
+  breadcrumbs?: Array<{ name: string; url: string }>;
 }> = ({ pageType, title, description, url, keywords, breadcrumbs }) => {
   const schema = {
     "@context": "https://schema.org",
@@ -261,7 +261,7 @@ export const generateKeywords = (
   company: string = 'القوة العاشرة'
 ): string[] => {
   const baseKeywords = [company];
-  
+
   // إضافة keywords حسب الفئة
   if (category === 'glass') {
     baseKeywords.push(
@@ -285,7 +285,7 @@ export const generateKeywords = (
       `شركة الومنيوم ${location}`,
       `الومنيوم ${location}`
     );
-  } else if (category ===  'aluminum') {
+  } else if (category === 'aluminum') {
     baseKeywords.push(
       `مقاولات ${company}`,
       `${company} مقاولات`,
@@ -296,7 +296,7 @@ export const generateKeywords = (
       `مقاولات ${location}`
     );
   }
-  
+
   // إضافة keywords للموقع
   baseKeywords.push(
     location,
@@ -304,13 +304,13 @@ export const generateKeywords = (
     `مشاريع ${location}`,
     `أعمال ${location}`
   );
-  
+
   // إضافة عنوان المشروع إذا كان مفيد
   if (projectTitle && projectTitle.length > 3) {
     baseKeywords.push(projectTitle);
   }
-  
-  return baseKeywords.filter((keyword, index, array) => 
+
+  return baseKeywords.filter((keyword, index, array) =>
     array.indexOf(keyword) === index // إزالة التكرار
   );
 };

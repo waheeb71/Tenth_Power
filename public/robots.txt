@@ -14,9 +14,6 @@ Allow: /media/
 Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap.xml
 Sitemap: https://stunning-bubblegum-f108c3.netlify.app/sitemap-images.xml
 
-# Crawl-delay (optional - helps with server load)
-Crawl-delay: 1
-
 # Disallow admin and private areas
 Disallow: /admin/
 Disallow: /private/
@@ -26,7 +23,7 @@ Disallow: /wp-includes/
 
 # Allow important pages for SEO
 Allow: /projects
-Allow: /services  
+Allow: /services
 Allow: /about
 Allow: /contact
 Allow: /gallery
